@@ -1,0 +1,22 @@
+:host::ng-deep .person-text img {
+    width: 150px !important;
+    height: 150px;
+    border-radius: 100%;
+}
+
+:host::ng-deep .bg-ban .ui-carousel .ui-carousel-content .ui-carousel-next {
+    display: none;
+}
+
+:host::ng-deep .bg-ban .ui-carousel .ui-carousel-content .ui-carousel-prev {
+    display: none;
+}
+
+:host::ng-deep .bg-ban .ui-carousel .car-data {
+    position: relative;
+    top: -400px;
+}
+
+:host::ng-deep .bg-ban .ui-carousel-content {
+    padding: 0px 0px !important;
+}

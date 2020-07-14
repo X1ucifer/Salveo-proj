@@ -1,0 +1,61 @@
+.listalign li {
+    list-style-type: none;
+    color: #000;
+    text-align: left;
+    font-weight: 600;
+}
+
+.justify-content-center {
+    justify-content: center;
+    display: flex;
+}
+
+.btn {
+    font-family: 'Raleway', sans-serif;
+    position: relative;
+    z-index: 2;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 0;
+    padding: 0px 14px;
+    line-height: 49px;
+    width: auto;
+    height: 51px;
+    letter-spacing: 0.26px;
+}
+
+.alignclass {
+    background-color: #1a88b5;
+    height: 50px;
+    text-align: center;
+    color: white;
+    padding-top: 12px;
+}
+
+.alignclass1 {
+    background-color: white;
+    text-align: center;
+    height: 250px;
+}
+
+.alignclass2 {
+    background-color: white;
+    text-align: left;
+}
+
+.alignclass2 li {
+    line-height: 30px;
+    list-style-type: none;
+}
+
+.alignclass2 li::before {
+    content: "\2022";
+    color: blue;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    font-size: 15px;
+}

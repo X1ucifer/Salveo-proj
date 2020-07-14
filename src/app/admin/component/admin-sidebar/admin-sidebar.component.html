@@ -1,0 +1,35 @@
+<mat-drawer-container class="example-container">
+    <mat-drawer class="side" mode="side" opened>
+        <mat-nav-list>
+            <mat-list-item routerLink="dashboard" routerLinkActive="active">
+                <mat-icon style="color: #fff !important;" mat-list-icon>person</mat-icon>
+                <div fxFlex="10"></div>
+                <div class="sidenav-item">
+                    <h5 class="lead">Dashboard</h5>
+                </div>
+            </mat-list-item>
+
+            <mat-list-item routerLink="2" routerLinkActive="active">
+                <mat-icon style="color: #fff !important;" mat-list-icon>settings</mat-icon>
+                <div fxFlex="10"></div>
+                <div class="sidenav-item">
+                    <h5 class="lead">Services</h5>
+                </div>
+            </mat-list-item>
+
+            <mat-list-item routerLink="3" routerLinkActive="active">
+                <mat-icon style="color: #fff !important;" mat-list-icon>local_phone</mat-icon>
+                <div fxFlex="10"></div>
+                <div class="sidenav-item">
+                    <h5 class="lead">Contact</h5>
+                </div>
+            </mat-list-item>
+
+
+
+        </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>

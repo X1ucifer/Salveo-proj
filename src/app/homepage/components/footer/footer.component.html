@@ -1,0 +1,130 @@
+<!-- Footer -->
+<section id="footer">
+    <div class="container">
+        <div class="row text-center text-xs-center text-sm-left text-md-left">
+            <div class="col-xs-12 col-sm-3 col-md-3">
+                <ul class="list-unstyled quick-links">
+                    <li><img style="margin-bottom: 20px;" src="assets/images/logo/logo.png"></li>
+                    <li><span style="color: #fff"><i style="color: #fff;font-size: 20px;" class="fa fa-phone-square" aria-hidden="true"></i> &nbsp;+ 91 7892976253</span><br></li>
+                    <li> <span style="color: #fff"><i style="color: #fff;font-size: 20px;" class="fa fa-envelope-o" aria-hidden="true"></i> &nbsp;salveocare@mysalveo.com</span></li>
+
+                </ul>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-3 col-md-3">
+
+                <ul class="list-unstyled quick-links">
+                    <li><a><i class="fa fa-angle-double-right"></i>What is Salveo</a></li>
+                    <li><a><i class="fa fa-angle-double-right"></i>Get the app</a></li>
+                    <li><a><i class="fa fa-angle-double-right"></i>Subsidiary Services</a></li>
+                    <li><a><i class="fa fa-angle-double-right"></i>Why we are best</a></li>
+
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-3 col-md-3">
+
+                <ul class="list-unstyled quick-links">
+                    <li><a href="https://salveohealthcare.in/terms_new.php"><i class="fa fa-angle-double-right"></i>Terms & Conditions</a></li>
+                    <li><a href="https://salveohealthcare.in/privacy_policy_new.php"><i class="fa fa-angle-double-right"></i>Privacy & Policy</a></li>
+                    <li><a href="https://salveohealthcare.in/index.php"><i class="fa fa-angle-double-right"></i>Our Services </a></li>
+                    <li><a href="https://salveohealthcare.in/contact_new.php"><i class="fa fa-angle-double-right"></i>Contact Us</a></li>
+
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-3 col-md-3">
+
+                <div class="th-fcol">
+
+                    <ul class="th-usefullinks" style=" padding: 0;">
+                        <a href="#"><img src="https://salveohealthcare.in/new/img/android.png" style="    margin-bottom: 10px;"></a>
+                        <a href="#"><img src="https://salveohealthcare.in/new/img/apple.png"></a>
+
+                    </ul>
+                    <style>
+                        .th-socialicons li a i {
+                            display: block;
+                            font-size: 18px!important;
+                            line-height: 25px!important;
+                            text-align: center;
+                        }
+                    </style>
+                    <ul class="th-socialicons">
+
+
+                        <li target=""><a href="https://www.facebook.com/Salveo-Healthcare-Solutions-141166056248140/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://twitter.com/MySalveo" target="_blank"><i class="fa fa-twitter" target="_blank"></i></a></li>
+                        <li><a href="https://www.instagram.com/mysalveo/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="https://in.linkedin.com/company/salveo-healthcare-solutions-llp" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <!-- <li><a href="https://www.youtube.com/channel/UCavtGFn4J9RwHZne8jAL2Og" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                                <li><a href="https://plus.google.com/111493189808646110424" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> -->
+
+                    </ul>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="footer--bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 text--center">
+                <div class="footer--copyright">
+                    <span style="color: #fff;">© Copyrights 2020. Salveo All Rights Reserved</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- .container end -->
+</div>
+<!-- .footer-copyright end -->
+
+<!-- ./Footer -->
+
+<!-- Footer Scripts
+============================================= -->
+<script src="assets/js/jquery-2.2.4.min.js"></script>
+<script src="assets/js/plugins.js"></script>
+<script src="assets/js/functions.js"></script>
+
+<script type="text/javascript" src="assets/js/carousels.js"></script>
+<!-- RS5.0 Core JS Files -->
+<!-- <script src="assets/revolution/js/jquery.themepunch.tools.min.js?rev=5.0"></script>
+<script src="assets/revolution/js/jquery.themepunch.revolution.min.js?rev=5.0"></script>
+<script src="assets/revolution/js/extensions/revolution.extension.video.min.js"></script>
+<script src="assets/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script src="assets/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+<script src="assets/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script src="assets/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+<script src="assets/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+<script src="assets/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+<script src="assets/revolution/js/extensions/revolution.extension.parallax.min.js"></script> -->
+<!-- RS Configration JS Files -->
+<script src="assets/js/rsconfig.js"></script>
+
+
+<script>
+    $("#nav ul li a[href^='#']").on('click', function(e) {
+
+        // prevent default anchor click behavior
+        e.preventDefault();
+
+        // store hash
+        var hash = this.hash;
+
+        // animate
+        $('html, body').animate({
+            scrollTop: $(hash).offset().top
+        }, 1000, function() {
+
+            // when done, add hash to url
+            // (default click behaviour)
+            window.location.hash = hash;
+        });
+
+    });
+</script>

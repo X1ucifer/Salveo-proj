@@ -1,0 +1,43 @@
+.imgs img {
+    width: 100%;
+    border: 1px #eee solid;
+    height: 250px;
+}
+
+.saplveobg1 {
+    background-image: url(../../../../assets/files/banner6.jpg);
+    background-position: center;
+    background-size: cover;
+    height: auto;
+}
+
+.design {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 127px;
+    color: white;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.btn {
+    font-family: 'Raleway', sans-serif;
+    position: relative;
+    z-index: 2;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 157px;
+    padding: 0;
+    line-height: 49px;
+    width: 152px;
+    height: 51px;
+    letter-spacing: 0.26px;
+}
+
+:host::ng-deep .mat-tab-label-active {
+    color: #fff;
+    background-color: rgb(250, 26, 26);
+}

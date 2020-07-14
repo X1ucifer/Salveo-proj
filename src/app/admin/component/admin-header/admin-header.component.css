@@ -1,0 +1,25 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+:host::ng-deep .mat-toolbar-row,
+.mat-toolbar-single-row {
+    height: 90px;
+}
+
+:host::ng-deep .mat-toolbar.mat-primary {
+    background: #fff;
+    color: white;
+    border-bottom: 2px solid #007ad9;
+}
+
+.fa {
+    color: #757575;
+    font-size: 21px;
+    position: absolute;
+    padding-left: 5px;
+}
+
+.logo-img {
+    padding-left: 55px;
+}

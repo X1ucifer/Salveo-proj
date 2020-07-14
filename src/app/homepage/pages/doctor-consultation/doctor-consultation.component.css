@@ -1,0 +1,35 @@
+li {
+    list-style-type: none;
+    color: #1a88b5;
+    text-align: left;
+}
+
+.our_speciality {
+    line-height: 40px;
+    margin-top: 20px;
+}
+
+.btn {
+    font-family: 'Raleway', sans-serif;
+    position: relative;
+    z-index: 2;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 0;
+    padding: 0px 30px;
+    line-height: 49px;
+    /* width: 13%; */
+    height: 51px;
+    letter-spacing: 0.26px;
+}
+
+.justify-content-center {
+    justify-content: center;
+    display: flex;
+}
+
+.img-full {
+    width: 100%;
+}
