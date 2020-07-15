@@ -24,6 +24,7 @@
         "jquery": "^3.5.1",
         "ng-image-slider": "^2.5.0",
         "ng-tabs": "0.0.2",
+        "ngx-webstorage-service": "^4.1.0",
         "primeicons": "^4.0.0",
         "primeng": "^9.1.3",
         "rxjs": "~6.5.4",

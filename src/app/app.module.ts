@@ -9,15 +9,23 @@ import { AdminComponent } from './admin/admin.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import {HomepageModule} from './homepage/homepage.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { HttpClientModule } from '@angular/common/http';
+
+
+
+import { DoctorCreateComponent } from './doctor-create/doctor-create.component';
 @NgModule({
   declarations: [
     AppComponent,
-  
+
     AdminComponent,
-    HomepageComponent
+    HomepageComponent,
+    DoctorCreateComponent
    ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     AdminModule,
