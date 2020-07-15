@@ -24,7 +24,107 @@
                     <h5 class="lead">Contact</h5>
                 </div>
             </mat-list-item>
+            <ng-container>
+                <a class="nav-link" [class.active]="expanded" (click)="expanded = !expanded">
+                    <div class="sb-nav-link-icon">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </div>
+                    Master
+                    <div class="sb-sidenav-collapse-arrow">
+                        <i *ngIf="!expanded" class="fa fa-chevron-down" aria-hidden="true"></i>
+                        <i *ngIf="expanded" class="fa fa-chevron-up" aria-hidden="true"></i>
+                    </div>
+                </a>
+                <nav class="sb-sidenav-menu-nested nav" *ngIf="expanded">
+                    <a class="nav-link" routerLink="/admin/nationality" routerLinkActive="active">
+                        <div class="sb-nav-link-icon">
+                            <i class="fa fa-globe" aria-hidden="true"></i>
+                        </div>
+                        Country
+                    </a>
+                    <a class="nav-link" routerLink="/admin/state" routerLinkActive="active">
+                        <div class="sb-nav-link-icon">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        </div>
+                        State
+                    </a>
+                    <a class="nav-link" routerLink="/admin/cities" routerLinkActive="active">
+                        <div class="sb-nav-link-icon">
 
+                            <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                        </div>
+                        Cities
+                    </a>
+                    <a class="nav-link" routerLink="/admin/skills" routerLinkActive="active">
+                        <div class="sb-nav-link-icon">
+                            <i class="fa fa-thumb-tack" aria-hidden="true"></i>
+                        </div>
+                        Key-Skills
+                    </a>
+
+                    <a class="nav-link" routerLink="/admin/industry" routerLinkActive="active">
+                        <div class="sb-nav-link-icon">
+                            <i class="fa fa-industry" aria-hidden="true"></i>
+                        </div>
+                        Industry
+                    </a>
+                    <!-- <a class="nav-link" routerLink="/admin/department" routerLinkActive="active">
+                        <div class="sb-nav-link-icon">
+                            <i class="fa fa-bars" aria-hidden="true"></i>
+                        </div>
+                        Department
+                    </a> -->
+
+                    <!-- <a class="nav-link" routerLink="/admin/location" routerLinkActive="active">
+                        <div class="sb-nav-link-icon">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        </div>
+                        Location 
+                    </a> -->
+                    <a class="nav-link" routerLink="/admin/companytype" routerLinkActive="active">
+                        <div class="sb-nav-link-icon">
+                            <i class="fa fa-building-o" aria-hidden="true"></i>
+                        </div>
+                        Company Type
+                    </a>
+                    <a class="nav-link" routerLink="/admin/function" routerLinkActive="active">
+                        <div class="sb-nav-link-icon">
+                            <i class="fa fa-cog" aria-hidden="true"></i>
+                        </div>
+                        Function
+                    </a>
+                    <a class="nav-link" routerLink="/admin/subfunction" routerLinkActive="active">
+                        <div class="sb-nav-link-icon">
+                            <i class="fa fa-cogs" aria-hidden="true"></i>
+                        </div>
+                        Sub-Function
+                    </a>
+                    <a class="nav-link" routerLink="/admin/current" routerLinkActive="active">
+                        <div class="sb-nav-link-icon">
+                            <i class="fa fa-inr" aria-hidden="true"></i>
+                        </div>
+                        Annual Compensation
+                    </a>
+                    <!-- <a class="nav-link" routerLink="/admin/excepted" routerLinkActive="active">
+                        <div class="sb-nav-link-icon">
+                            <i class="fa fa-usd" aria-hidden="true"></i>
+                        </div>
+                        Expected Annual Compensation
+                    </a> -->
+                    <a class="nav-link" routerLink="/admin/education" routerLinkActive="active">
+                        <div class="sb-nav-link-icon">
+                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                        </div>
+                        Education-Degree
+                    </a>
+                    <!-- <a class="nav-link" routerLink="/admin/country" routerLinkActive="active">
+                        <div class="sb-nav-link-icon">
+                            <i class="fa fa-globe" aria-hidden="true"></i>
+                        </div>
+                        Country
+                    </a> -->
+                </nav>
+            </ng-container>
 
 
         </mat-nav-list>
