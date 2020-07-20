@@ -10,17 +10,17 @@ import { AdminSidebarComponent } from './component/admin-sidebar/admin-sidebar.c
 import { HttpClientModule } from '@angular/common/http';
 
 
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
 
-import {MatListModule} from '@angular/material/list';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 import { AccessrollComponent } from './adminpanel/mobilefeature/accessroll/accessroll.component';
@@ -37,11 +37,15 @@ import { LivedoctorsComponent } from './adminpanel/Doctors/livedoctors/livedocto
 import { ViewdoctorsComponent } from './adminpanel/Doctors/viewdoctors/viewdoctors.component';
 import { ListpatientsComponent } from './adminpanel/Patients/listpatients/listpatients.component';
 import { ViewpatientsComponent } from './adminpanel/Patients/viewpatients/viewpatients.component';
-
-
-
+import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ProfileComponent } from './adminpanel/Doctors/profile/profile.component';
+import { CreateCompanyComponent } from './adminpanel/create-company/create-company.component';
+import { CompanyListComponent } from './adminpanel/company-list/company-list.component';
+import {DialogModule} from 'primeng/dialog';
+import {RadioButtonModule} from 'primeng/radiobutton';
 @NgModule({
-  declarations: [ AdminHeaderComponent, AdminSidebarComponent, DashboardComponent,
+  declarations: [AdminHeaderComponent, AdminSidebarComponent, DashboardComponent,
     AccessrollComponent,
     AdminusercreateComponent,
     AdminuserlistComponent,
@@ -56,6 +60,9 @@ import { ViewpatientsComponent } from './adminpanel/Patients/viewpatients/viewpa
     ViewdoctorsComponent,
     ListpatientsComponent,
     ViewpatientsComponent,
+    ProfileComponent,
+    CreateCompanyComponent,
+    CompanyListComponent,
   ],
   imports: [
     CommonModule,
@@ -66,12 +73,16 @@ import { ViewpatientsComponent } from './adminpanel/Patients/viewpatients/viewpa
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
-MatMenuModule  ],
+    MatMenuModule,
+    FormsModule,
+    MatDialogModule,
+    DialogModule,
+    RadioButtonModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA
   ],
-  exports:[
+  exports: [
     AdminHeaderComponent,
     AdminSidebarComponent
   ]

@@ -4,11 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
 
 import { AdminComponent } from './admin/admin.component';
+import { DoctorCreateComponent } from './doctor-create/doctor-create.component';
+import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'homepage', },
-  
+  { path: 'admin', component:LoginComponent, },
   {
-    path: 'admin', component: AdminComponent,
+    path: 'admin_panel', component: AdminComponent,
     children: [
       {
         path: '',
@@ -23,6 +25,11 @@ const routes: Routes = [
         loadChildren: () => import('./homepage/homepage.module').then(m => m.HomepageModule)
       },]
   },
+  {
+    path: 'Create_Doctor_new',
+    component: DoctorCreateComponent,
+
+  }
 ];
 
 @NgModule({

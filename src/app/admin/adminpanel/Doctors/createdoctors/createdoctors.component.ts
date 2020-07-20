@@ -14,11 +14,11 @@ import { Router } from '@angular/router';
 export class CreatedoctorsComponent  {
   Pic:any = "";
   Available_type:any = "";
-  Charge_Per_15min:any = "";
+  Charge_Per_15min:any;
   Service:any = "";
   DrName:any;
   Email_id:any;
-  Password:any;
+  Password:string;
   Phone_number:any;
   Gender:any;
   DOB:any;
@@ -298,7 +298,8 @@ _keyPress(event: any) {
   }
 }
 validation(){
-  if(this.DrName == undefined || this.Email_id ==undefined || this.Password == undefined || this.Phone_number == undefined || (this.Specialisation == '' && this.SpecialisationList.length < 1 )|| this.Charge_Salveo == undefined){
+  // console.log(this.Charge_Per_15min)
+  if(this.DrName == undefined || this.Email_id ==undefined || (this.Password == undefined || this.Password.length < 6 ) || this.Phone_number == undefined || (this.Specialisation == '' && this.SpecialisationList.length < 1 )|| this.Charge_Salveo == undefined || this.Charge_Per_15min == undefined || this.Gender == undefined || this.Qualifications == undefined || this.Institution == undefined){
     this.Validation = false;
     console.log(this.DrName)
     console.log('asdff')
@@ -308,5 +309,8 @@ validation(){
     this.Validation = true;
     console.log(this.Validation)
   }
+}
+ch(){
+  console.log(this.Gender)
 }
 }

@@ -1,0 +1,48 @@
+.add-btn {
+    border: none;
+    background: #2896bc;
+    color: #fff;
+}
+
+:host::ng-deep .pagination>li>a,
+.pagination>li:first-child>span {
+    font-size: 9px !important;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    line-height: 30px !important;
+}
+
+.badge {
+    display: inline-block;
+    font-weight: 500;
+    color: #35a625;
+    background-color: #FFF;
+}
+
+.table>thead>tr>th {
+    font-weight: 500;
+}
+
+.table>tbody>tr>td {
+    color: #605f5f;
+    font-weight: 400;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+.btn {
+    padding: 8px 27px !important;
+    height: auto !important;
+    line-height: normal !important;
+}
+
+:host::ng-deep .ui-dialog .ui-dialog-footer {
+    display: none;
+}
+
+:host::ng-deep .ui-dialog .ui-dialog-titlebar {
+    display: none;
+}

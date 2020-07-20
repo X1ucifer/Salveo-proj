@@ -1,0 +1,52 @@
+.add-btn {
+    border: none;
+    background: #2896bc;
+    color: #fff;
+}
+
+.logo {
+    text-align: center;
+    /* background: #2896bc; */
+    padding: 10px;
+}
+
+.logo img {
+    width: 100px;
+}
+
+.logo h5 {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 0px 0px 0px;
+}
+
+.add-btn {
+    border: none;
+    background: #2896bc;
+    color: #fff;
+}
+
+.round {
+    float: right;
+    position: absolute;
+    right: 30px;
+    top: 0px;
+}
+
+.form-control,
+textarea.form-control {
+    margin-bottom: 5px !important;
+}
+
+.text-danger {
+    color: #ea5855 !important;
+    font-size: 11px !important;
+}
+
+.btn {
+    padding: 6px !important;
+    width: auto;
+    height: auto !important;
+    ;
+}

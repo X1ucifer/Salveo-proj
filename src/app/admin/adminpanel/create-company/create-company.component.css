@@ -1,0 +1,26 @@
+.btn {
+    padding: 8px 27px !important;
+    height: auto !important;
+    line-height: normal !important;
+}
+
+h5 {
+    font-size: 14px;
+    color: #337ab7;
+}
+
+.in-box {
+    padding: 2px 20px !important;
+}
+
+.form-control,
+textarea.form-control {
+    margin-bottom: 15px !important;
+}
+
+.card-box {
+    padding: 20px 30px 0px 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 3px 3px 0px #d5d2d2;
+}

@@ -3,20 +3,20 @@ import { HttpClient } from '@angular/common/http';
 import { ApiService } from '../api.service';
 // import { ThemeService } from 'ng2-charts';
 import {ValidatorService} from '../validator.services';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-doctor-create',
   templateUrl: './doctor-create.component.html',
   styleUrls: ['./doctor-create.component.css']
 })
-export class DoctorCreateComponent implements OnInit {
-  screen:boolean = true;
+export class DoctorCreateComponent  {
   Pic:any = "";
   Available_type:any = "";
-  Charge_Per_15min:any = "";
+  Charge_Per_15min:any;
   Service:any = "";
   DrName:any;
   Email_id:any;
-  Password:any;
+  Password:string;
   Phone_number:any;
   Gender:any;
   DOB:any;
@@ -38,7 +38,7 @@ export class DoctorCreateComponent implements OnInit {
   File_list:any = [];
   selectedAudio: any;
   selectedAudio1:any;
-  Charge_Salveo :any = 0;
+  Charge_Salveo :any;
   specialization:any;
   language:any;
   imageSrc:any;
@@ -46,7 +46,7 @@ export class DoctorCreateComponent implements OnInit {
   Validation : boolean;
   maxDate:any = new Date();
   year:any[]=[];
-  constructor(private http: HttpClient,private _api: ApiService,private ValidatorService:ValidatorService,) {
+  constructor(private http: HttpClient,private _api: ApiService,private ValidatorService:ValidatorService, private router: Router,   ) {
      this._api.specializationList().subscribe((res) => {
       console.log(res)
       this.specialization = res.Data;
@@ -70,9 +70,6 @@ export class DoctorCreateComponent implements OnInit {
   }
 
 
-  ngOnInit(){
-
-  }
   addlanguage()
   {
     if(this.Languages == ""){
@@ -259,7 +256,6 @@ submit()
           "Salveo_Price" : +this.Charge_Salveo,
           "Verification_Status": "not verified",
           "Live_Status": "not live",
-
       }
       console.log(data);
       this._api.CreateDoctor1(data).subscribe(
@@ -268,7 +264,10 @@ submit()
           if(response.Code == 300){
             alert("There Was a Problem in register this doctor try it again");
           }else{
-            this.screen = false;
+            alert('Data Uploaded SuccessFully');
+            this.router.navigate(['Home/Doctor', 'List_doctors']);
+
+
           }
         }
       );
@@ -297,7 +296,8 @@ _keyPress(event: any) {
   }
 }
 validation(){
-  if(this.DrName == undefined || this.Email_id ==undefined || this.Password == undefined || this.Phone_number == undefined || (this.Specialisation == '' && this.SpecialisationList.length < 1 )|| this.Charge_Salveo == undefined){
+  // console.log(this.Charge_Per_15min)
+  if(this.DrName == undefined || this.Email_id ==undefined || (this.Password == undefined || this.Password.length < 6 ) || this.Phone_number == undefined || (this.Specialisation == '' && this.SpecialisationList.length < 1 )|| this.Charge_Salveo == undefined || this.Charge_Per_15min == undefined || this.Gender == undefined || this.Qualifications == undefined || this.Institution == undefined){
     this.Validation = false;
     console.log(this.DrName)
     console.log('asdff')
@@ -308,5 +308,7 @@ validation(){
     console.log(this.Validation)
   }
 }
+ch(){
+  console.log(this.Gender)
 }
-
+}

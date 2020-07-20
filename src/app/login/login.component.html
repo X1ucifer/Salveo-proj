@@ -1,0 +1,42 @@
+<div class="container" style="height: 100%;background-color: #fcfcfc;margin: 0 0 0 0 !important;width: 100%;">
+    <div class="login-wrapper" *ngIf="!isLoading">
+        <div class="grid-container" style="width: 30%; margin: 15% auto;;">
+            <div class="login-ctnr" style="width: 500px;">
+
+                <!-- BRAND LOGO AND COPY -->
+                <div class="logo" style="text-align: center;">
+                    <img src="assets/images/logo/logo.png" width="80px" alt="Login" class="logo-img">
+                    <!-- <i class="fa fa-cloud logo-img" width="80px" aria-hidden="true" style="font-size:70px; color:var(--color-primary)"></i>
+
+                    <h3 class="heading">Copy about the functionality offerred <br> in this Application goes here.</h3> -->
+                </div>
+
+                <!-- LOGIN BOX -->
+                <div class="login-content box box-banner">
+                    <div class="grid-row">
+                        <div class="col-12 form-group">
+                            <label style="color: #333;font-weight: 500;">Username</label>
+                            <input type="text" [(ngModel)]="name" class="form-control" name="username" autofocus />
+                        </div>
+                    </div>
+                    <div class="grid-row">
+                        <div class="col-12 form-group">
+                            <label style="color: #333;font-weight: 500;">Password</label>
+                            <div class="password">
+                                <input [(ngModel)]="password" type="{{showPassword ? '' : 'password'}}" class="form-control" name="password" />
+                                <!-- <i class="zmdi zmdi-eye" (click)="showPassword = true" *ngIf="!showPassword"></i> -->
+                                <!-- <i class="zmdi zmdi-eye-off" (click)="showPassword = false" *ngIf="showPassword"></i> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-row">
+                        <div class="col-12 button-ctnr text-center">
+                            <button type="submit" (click)="login()" class="button button-primary button-width-full">Login</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

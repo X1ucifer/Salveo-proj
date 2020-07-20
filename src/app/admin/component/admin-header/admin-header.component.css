@@ -11,6 +11,9 @@
     background: #fff;
     color: white;
     border-bottom: 2px solid #007ad9;
+    position: fixed;
+    top: 0px;
+    z-index: 9;
 }
 
 .fa {

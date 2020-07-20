@@ -1,0 +1,98 @@
+<section>
+    <div class="container" style="width: 100%;">
+        <p> <i (click)="back()" class="fa fa-arrow-left" aria-hidden="true"></i> Back </p>
+        <div class="card-box">
+            <div class="row" style="padding: 0px 0px 23px 10px;">
+                <div class="col-md-3">
+                    <img src="{{data.Pic}}" class="pro-pic">
+                </div>
+                <div class="col-md-9">
+                    <h1 style="margin-bottom: 0px;">{{data.Name}}</h1>
+                    <p class="title">{{data.Qualifications}}</p>
+                    <p><i class="fa fa-envelope-o" aria-hidden="true"></i> {{data.Email}} - <i class="fa fa-phone" aria-hidden="true"></i> {{data.Phone}}</p>
+                    <p style="font-size:12px;font-weight: 500;"><i class="fa fa-briefcase" aria-hidden="true"></i> {{data.Experience}} </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" style="margin-top: 25px;">
+                <div class="spec">
+                    <h5>More Details</h5>
+
+                </div>
+                <div class="card-box">
+                    <div>
+                        <table cellpadding="5" cellspacing="0">
+                            <tr>
+                                <th> <label for="f-user"> Specialisation </label> </th>
+
+                                <td class="desc">
+                                    <ng-container *ngFor="let spe of data.Specilization; let i=index">
+                                        {{i+1}}.{{spe}}<br />
+                                    </ng-container>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th> <label for="f-pass1"> Date of Birth </label> </th>
+
+                                <td class="desc"> {{data.DOB}}</td>
+                            </tr>
+                            <tr>
+                                <th> <label for="f-pass2">Gender </label> </th>
+
+                                <td class="desc"> {{data.Gender}} </td>
+                            </tr>
+                            <tr>
+                                <th> <label for="f-dispname">University </label> </th>
+
+                                <td class="desc"> {{data.HighestQualifications}} </td>
+                            </tr>
+                            <tr>
+                                <th> <label for="f-dispname">Year of Passout </label> </th>
+
+                                <td class="desc"> {{data.Year_of_Passout}} </td>
+                            </tr>
+                            <tr>
+                                <th> <label for="f-email"> Languages </label> </th>
+
+                                <td class="desc">
+                                    <ng-container *ngFor="let spe of data.Languages; let i=index">{{i+1}}.{{spe}}<br />
+                                    </ng-container>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th> <label for="f-tos"> Corporate code </label> </th>
+
+                                <td class="desc"> {{data.corporatecode}} </td>
+                            </tr>
+                            <tr>
+                                <th> <label for="f-tos">Available Hours </label> </th>
+
+                                <td class="desc"> {{data.AvailableHours}} </td>
+                            </tr>
+                            <tr>
+                                <th> <label for="f-tos"> Available Type </label> </th>
+
+                                <td class="desc"> {{data.Available_type}} </td>
+                            </tr>
+                            <tr>
+                                <th> <label for="f-tos"> Charges Per Appointment </label> </th>
+
+                                <td class="desc"> {{data.Charge_Per_15min}} </td>
+                            </tr>
+                            <tr>
+                                <th><label for="f-tos"> Live Status</label></th>
+                                <td class="desc"> {{data.Live_Status}} </td>
+                            </tr>
+                            <tr>
+                                <th><label for="f-tos"> Current Location</label></th>
+                                <td class="desc"> {{data.Current_location}} </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

@@ -15,13 +15,17 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 import { DoctorCreateComponent } from './doctor-create/doctor-create.component';
+import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { MatButtonModule } from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
 
     AdminComponent,
     HomepageComponent,
-    DoctorCreateComponent
+    DoctorCreateComponent,
+    LoginComponent
    ],
   imports: [
     BrowserModule,
@@ -29,7 +33,9 @@ import { DoctorCreateComponent } from './doctor-create/doctor-create.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     AdminModule,
-    HomepageModule],
+    HomepageModule,
+    FormsModule,
+    MatButtonModule],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],

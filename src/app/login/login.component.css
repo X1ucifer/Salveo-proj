@@ -1,0 +1,64 @@
+.box.box-banner {
+    max-width: 450px;
+    padding: 30px;
+    top: 20px;
+    position: relative;
+    min-width: 0;
+    margin: 40px auto 0 auto;
+}
+
+.box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 13px;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    transition: width 0.1s ease-in-out, min-width 0.1s ease-in-out;
+    border: 1px solid rgb(202, 202, 202) !important;
+}
+
+.box.box-banner .button-ctnr .button {
+    width: inherit;
+    line-height: 1.6;
+    position: relative;
+}
+
+.button.button-primary {
+    background-color: #008AD7;
+    color: white;
+}
+
+.button {
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    padding: 0px 12px;
+    font-size: 12px !important;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    user-select: none;
+    cursor: pointer;
+    outline: none !important;
+    min-width: 150px;
+    border-radius: 5px;
+    position: relative;
+    border: none !important;
+}
+
+.form-group .form-control {
+    display: block;
+    width: 100%;
+    min-height: 40px;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    background-image: none;
+    background-clip: padding-box;
+    border: 2px solid #eee;
+    border-radius: 5px;
+    -webkit-appearance: none;
+    outline: none !important;
+}

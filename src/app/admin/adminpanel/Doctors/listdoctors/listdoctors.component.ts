@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 // import { ApiService } from '../../../api/userApi/api.service';
 import { ApiService } from '../../../../api.service';
 import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
-
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 
 @Component({
@@ -24,7 +24,8 @@ export class ListdoctorsComponent implements OnInit {
   constructor(
     @Inject(SESSION_STORAGE) private storage: StorageService,
     private router: Router,
-    private _api: ApiService
+    private _api: ApiService,
+    public dialog: MatDialog
 
   ) {
 
@@ -34,7 +35,7 @@ export class ListdoctorsComponent implements OnInit {
   ViewDoctors(data){
       this.saveInLocal('Doctor_Details', data);
       console.log(data);
-      this.router.navigateByUrl('/Home/Doctor/view_doctors');
+      this.router.navigateByUrl('admin_panel/view_doctors');
   }
 
   ngOnInit() {
@@ -182,7 +183,7 @@ export class ListdoctorsComponent implements OnInit {
       "Service": this.Live_Doctor_data.Service,
       "Special_mention": this.Live_Doctor_data.Special_mention,
       "Charge_Per_15min": this.Live_Doctor_data.Charge_Per_15min,
-      "Live_Status": this.Live_Doctor_data.Live_Status,
+      "Live_Status": 'Live',
       "Verification_Status": this.Live_Doctor_data.Verification_Status,
       "Salveo_Price": this.Live_Doctor_data.Salveo_Price,
       "signature" : this.Live_Doctor_data.signature,
@@ -231,6 +232,37 @@ export class ListdoctorsComponent implements OnInit {
    getFromLocal(key): any {
     return this.storage.get(key);
    }
+   ViewProfile(maindata){
+    
+    this.saveInLocal('Doctor_Details', maindata);
+    console.log(maindata);
+    this.router.navigateByUrl('admin_panel/profile_view')
+    // const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+    //   width: '500px',
+    //   data: maindata
+    // });
 
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log('The dialog was closed');
+    // });
+   }
 }
 
+
+
+// @Component({
+//   selector: 'dialog-overview-example-dialog',
+//   templateUrl: 'dialog-overview-example-dialog.html',
+//   styleUrls: ['./dialog.css']
+// })
+// export class DialogOverviewExampleDialog {
+
+//   constructor(
+//     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+//     @Inject(MAT_DIALOG_DATA) public data) {}
+
+//   onNoClick(): void {
+//     this.dialogRef.close();
+//   }
+
+// }

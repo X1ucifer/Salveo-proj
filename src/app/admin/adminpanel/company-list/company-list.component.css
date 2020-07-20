@@ -38,3 +38,17 @@
     max-width: 1500px !important;
     margin-bottom: 20px;
 }
+
+.btn {
+    padding: 8px 27px !important;
+    height: auto !important;
+    line-height: normal !important;
+}
+
+:host::ng-deep .ui-dialog .ui-dialog-footer {
+    display: none;
+}
+
+:host::ng-deep .ui-dialog .ui-dialog-titlebar {
+    display: none;
+}

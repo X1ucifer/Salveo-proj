@@ -1,72 +1,72 @@
 <div class="animated fadeIn">
-  <!--/.row-->
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="card">
-        <div class="card-header">
-          <i class="fa fa-align-justify"></i> Patient List
-        </div>
-        <div class="card-body">
-          <table class="table table-bordered table-striped table-sm">
-            <thead>
-              <tr>
-                <th>S.No</th>
-                <th>Pic</th>
-                <th>Patient Name</th>
-                <th>Email ID</th>
-                <th>Phone Number</th>
-                <th>Password</th>
-                <th>Logintype</th>
-                <th style="width: 100px;">Notify</th>
+    <!--/.row-->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i> Patient List
+                </div>
+                <div class="card-body" style="overflow-x: scroll;">
+                    <table class="table table-bordered table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Pic</th>
+                                <th>Patient Name</th>
+                                <th>Email ID</th>
+                                <th>Phone Number</th>
+                                <th>Password</th>
+                                <th>Logintype</th>
+                                <th style="width: 100px;">Notify</th>
 
-                <th>Last Login</th>
-                <th>Type</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <ng-container *ngFor="let item of Patient_list; let i = index;">
+                                <th>Last Login</th>
+                                <th>Type</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ng-container *ngFor="let item of Patient_list; let i = index;">
 
-                  <tr>
-                      <td>{{i+1}}</td>
-                      <td>{{item.Pic}}</td>
-                      <td>{{item.Name}}</td>
-                      <td>{{item.Email}}</td>
-                      <td>{{item.Phone}}</td>
-                      <td>{{item.Password}}</td>
-                      <td>{{item.login_type}}</td>
-                      <td>{{item.Notification_Token}}</td>
-                      <td>{{item.last_login_time | date}}</td>
-                      <td *ngIf="item.Type == 1">
-                          <span class="badge badge-success">Doctor</span>
-                      </td>
-                      <td *ngIf="item.Type == 0">
-                          <span class="badge badge-secondary">Patient</span>
-                      </td>
-                      <td>
-                         <button (click)="DeletePatient(item._id)">Delete</button>
-                         <button (click)="ViewPatient(item)">View</button>
-                        </td>
-                    </tr>
-                  </ng-container>
-            </tbody>
-          </table>
-          <nav>
-            <ul class="pagination">
-              <li class="page-item"><a class="page-link" href="#">Prev</a></li>
-              <li class="page-item active">
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" href="#">4</a></li>
-              <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </ul>
-          </nav>
+                                <tr>
+                                    <td>{{i+1}}</td>
+                                    <td>{{item.Pic}}</td>
+                                    <td>{{item.Name}}</td>
+                                    <td>{{item.Email}}</td>
+                                    <td>{{item.Phone}}</td>
+                                    <td>{{item.Password}}</td>
+                                    <td>{{item.login_type}}</td>
+                                    <td>{{item.Notification_Token}}</td>
+                                    <td>{{item.last_login_time | date}}</td>
+                                    <td *ngIf="item.Type == 1">
+                                        <span class="badge badge-success">Doctor</span>
+                                    </td>
+                                    <td *ngIf="item.Type == 0">
+                                        <span class="badge badge-secondary">Patient</span>
+                                    </td>
+                                    <td>
+                                        <button (click)="DeletePatient(item._id)">Delete</button>
+                                        <button (click)="ViewPatient(item)">View</button>
+                                    </td>
+                                </tr>
+                            </ng-container>
+                        </tbody>
+                    </table>
+                    <nav>
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                            <li class="page-item active">
+                                <a class="page-link" href="#">1</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
         </div>
-      </div>
+        <!--/.col-->
     </div>
-    <!--/.col-->
-  </div>
-  <!--/.row-->
+    <!--/.row-->
 </div>

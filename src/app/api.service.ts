@@ -26,11 +26,11 @@ export class ApiService {
     return this.http.get(this.apiUrl + 'doctor/getlist');
   }
 
-  CreateLiveDoctor(data){
+  CreateLiveDoctor(data) {
     return this.http.post(this.apiUrl + 'livedoctors/signup', data);
   }
 
-  EditLiveDoctor(data){
+  EditLiveDoctor(data) {
     return this.http.post(this.apiUrl + 'livedoctors/edit', data);
   }
 
@@ -82,14 +82,16 @@ export class ApiService {
 
 
 
-  specializationList(){
+  specializationList() {
     return this.http.get<any>(this.apiUrl + 'specialization/getlist');
   }
 
   Createspecialization(data) {
     return this.http.post(this.apiUrl + 'specialization/create', data);
   }
-
+  Editspecialization(data) {
+    return this.http.post(this.apiUrl + 'specialization/edit', data);
+  }
   DeleteSpecialisation(data) {
     return this.http.post(this.apiUrl + 'specialization/delete', data);
   }
@@ -97,7 +99,7 @@ export class ApiService {
 
 
 
-  Banner_List(){
+  Banner_List() {
     return this.http.get(this.apiUrl + 'homebanner/getlist');
   }
 
@@ -112,7 +114,7 @@ export class ApiService {
   }
 
 
-  Symptoms_list(){
+  Symptoms_list() {
     return this.http.get(this.apiUrl + 'symptoms/getlist');
   }
 
@@ -120,18 +122,33 @@ export class ApiService {
   CreateSymptoms(data) {
     return this.http.post(this.apiUrl + 'symptoms/create', data);
   }
-
+  EditSymptoms(data) {
+    return this.http.post(this.apiUrl + 'symptoms/edit', data);
+  }
   deleteSymptoms(data) {
     return this.http.post(this.apiUrl + 'symptoms/delete', data);
   }
 
 
 
-  editSymptoms(data){
+  editSymptoms(data) {
     return this.http.post(this.apiUrl + 'symptoms/edit', data);
   }
 
-  languageList(){
+  languageList() {
     return this.http.get<any>(this.apiUrl + 'languages/getlist');
+  }
+  createcompany(data) {
+    return this.http.post(this.apiUrl + 'company/create', data);
+  }
+  companylist() {
+    return this.http.get<any>(this.apiUrl + 'company/getlist');
+  }
+  Deletecompany(data) {
+    return this.http.post(this.apiUrl + 'company/delete', data);
+  }
+
+  Editcompany(data) {
+    return this.http.post(this.apiUrl + 'company/edit', data);
   }
 }

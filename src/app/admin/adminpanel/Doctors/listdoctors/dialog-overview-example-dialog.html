@@ -1,0 +1,29 @@
+<!-- <h1 mat-dialog-title>Hi {{data.name}}</h1> -->
+<div mat-dialog-content>
+    <!-- <h2 style="text-align:center">User Profile Card</h2> -->
+
+    <div class="card">
+        <img src="{{data.Pic}}" class="pro-pic">
+        <h1 style="margin-bottom: 0px;">{{data.Name}}</h1>
+        <p class="title">{{data.Qualifications}}</p>
+        <p><i class="fa fa-envelope-o" aria-hidden="true"></i> {{data.Email}} - <i class="fa fa-phone" aria-hidden="true"></i> {{data.Phone}}</p>
+        <p style="font-size:12px;font-weight: 500;"><i class="fa fa-briefcase" aria-hidden="true"></i> {{data.Experience}} </p>
+        <!-- - <i class="fa fa-map-marker" aria-hidden="true"></i> {{data.Current_location}} -->
+        <h5>Specialisation</h5>
+        <p>
+            {{data.Specilization}}
+        </p>
+        <!-- <div style="margin: 24px 0;">
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+        </div> -->
+
+    </div>
+
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()" color="accent">close</button>
+    <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
+</div>

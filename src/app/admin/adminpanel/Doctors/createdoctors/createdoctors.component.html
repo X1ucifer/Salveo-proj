@@ -1,365 +1,405 @@
 <div class="animated fadeIn">
-  <div class="row">
-      <div class="col-md-12">
-          <div class="card">
-              <div class="card-header">
-                  <strong>Create Doctor Form</strong>
-              </div>
-              <div class="card-body">
-                  <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-                      <div class="form-group row">
-                      </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong style="font-size: 20px;color: #007ad9;">Create Doctor Form</strong>
+                </div>
+                <div class="card-body">
+                    <form class="form-horizontal">
+                        <div class="form-group row">
+                        </div>
 
 
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="file-input">Doctor Photo</label>
-                          <div class="col-md-9">
-                              <input type="file" (change)="fileupload1($event)" accept="image/*">
-                              <span class="round"><img src="{{Pic}}" style="width: 35px;height: 35px;" alt="" /></span>
-                          </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="file-input">Doctor Photo</label>
+                            <div class="col-md-9">
+                                <input type="file" (change)="fileupload1($event)" accept="image/*">
+                                <span class="round"><img src="{{Pic}}" style="width: 35px;height: 35px;"
+                                        alt="" /></span>
+                            </div>
 
-                      </div>
-
-
-
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="text-input">Doctor Name <i class="fa fa-asterisk" style="color: #f72a2a;font-size: 10px;" aria-hidden="true"></i></label>
-                          <div class="col-md-9">
-                              <input type="text" [(ngModel)]="DrName" name="DrName" id="text-input" class="form-control" placeholder="Name of the Doctor">
-                              <!-- <span class="help-block">This is a help text</span> -->
-                              <div *ngIf="Validation == false && DrName == undefined" class="mt-1 error">
-                                  <div class="text-danger">Doctor Name is Required.</div>
-                              </div>
-                          </div>
-
-                      </div>
-
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="text-input">Email Id <i class="fa fa-asterisk" style="color: #f72a2a;font-size: 10px;" aria-hidden="true"></i></label>
-                          <div class="col-md-9">
-                              <input type="text" id="text-input" [(ngModel)]="Email_id" name="Email_id" [ngModelOptions]="{standalone: true}" (ngModelChange)="EmailidChange($event)" class="form-control" placeholder="Email Id">
-                              <!-- <span class="help-block">This is a help text</span> -->
-                              <div *ngIf="Email_idError" class="mt-1 error">
-                                  <div class="text-danger">Valid Email Address Required.</div>
-                              </div>
-                              <div *ngIf="Validation == false && Email_id == undefined" class="mt-1 error">
-                                  <div class="text-danger">Valid Email Address Required.</div>
-                              </div>
-                          </div>
-
-                      </div>
-
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="text-input">Password <i class="fa fa-asterisk" style="color: #f72a2a;font-size: 10px;" aria-hidden="true"></i></label>
-                          <div class="col-md-9">
-                              <input type="password" id="text-input" [(ngModel)]="Password" name="Password" class="form-control" placeholder="Password">
-                              <!-- <span class="help-block">This is a help text</span> -->
-                              <div *ngIf="Validation == false && Password == undefined" class="mt-1 error">
-                                  <div class="text-danger">Password is Required.</div>
-                              </div>
-                          </div>
-                      </div>
-
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="text-input">Phone Number <i class="fa fa-asterisk" style="color: #f72a2a;font-size: 10px;" aria-hidden="true"></i></label>
-                          <div class="col-md-9">
-                              <input type="text" id="text-input" [(ngModel)]="Phone_number" name="Phone_number" maxlength="10" (keypress)=_keyPress($event) class="form-control" placeholder="Phone Number">
-                              <!-- <span class="help-block">This is a help text</span> -->
-                              <div *ngIf="Validation == false && Phone_number == undefined" class="mt-1 error">
-                                  <div class="text-danger">Phone Number is Required.</div>
-                              </div>
-                          </div>
-                      </div>
-
-
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="text-input">Gender</label>
-
-                          <div class="col-md-9">
-                              <select id="select1" name="select1" class="form-control" [(ngModel)]="Gender" name="Gender">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Others">Others</option>
-              </select>
-                          </div>
-                      </div>
-
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="text-input">Date of birth</label>
-                          <div class="col-md-9">
-                              <input type="Date" id="text-input" [(ngModel)]="DOB" name="DOB" [max]="maxDate | date:'yyyy-MM-dd'" class="form-control" placeholder="Text">
-                              <!-- <span class="help-block">This is a help text</span> -->
-                          </div>
-                      </div>
-
-
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="text-input">Languages Knowns</label>
-
-                          <div class="col-md-9">
-                              <table style="border: 1px solid black; width: 100%;">
-                                  <tr style="border: 1px solid black;background-color: gray;">
-                                      <td style="border: 1px solid black;">S.no</td>
-                                      <td style="border: 1px solid black;">Languages</td>
-                                      <td style="border: 1px solid black;">Action</td>
-                                  </tr>
-                                  <tr style="border: 1px solid black;">
-                                      <td style="border: 1px solid black;"></td>
-                                      <td style="border: 1px solid black;">
-                                          <select style="width: 100%;" [(ngModel)]="Languages" name="Languages">
-                      <option value="" disabled selected hidden>Select Language</option>
-                      <ng-container *ngFor="let Spec of language">
-                        <option value="{{Spec.Languages}}">{{Spec.Languages}}</option>
-                      </ng-container>
-                      <!-- <option value="volvo">Tamil</option> -->
-                    </select>
-                                      </td>
-                                      <td style="border: 1px solid black;"><button class="add-btn" (click)="addlanguage()">Add</button>
-                                      </td>
-                                  </tr>
-                                  <ng-container *ngFor="let item of LanguagesList; let i = index;">
-                                      <tr style="border: 1px solid black;">
-                                          <td style="border: 1px solid black;">{{i+1}}</td>
-
-                                          <td style="border: 1px solid black;">{{item}}</td>
-
-                                          <td style="border: 1px solid black;"><button class="add-btn" (click)="deletelanguage(i)">Delete</button></td>
-                                      </tr>
-                                  </ng-container>
-
-
-                              </table>
-                              <!-- <span class="help-block">This is a help text</span> -->
-                              <!-- <span class="help-block">This is a help text</span> -->
-                          </div>
-                      </div>
+                        </div>
 
 
 
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="text-input">Qualifications</label>
-                          <div class="col-md-9">
-                              <input type="text" id="text-input" [(ngModel)]="Qualifications" name="Qualifications" class="form-control" placeholder="Qualifications">
-                              <!-- <span class="help-block">This is a help text</span> -->
-                          </div>
-                      </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Doctor Name <i
+                                    class="fa fa-asterisk" style="color: #f72a2a;font-size: 10px;"
+                                    aria-hidden="true"></i></label>
+                            <div class="col-md-9">
+                                <input type="text" [(ngModel)]="DrName" name="DrName" id="text-input" class="form-control" placeholder="Name of the Doctor">
+                                <!-- <span class="help-block">This is a help text</span> -->
+                                <div *ngIf="Validation == false && (DrName == undefined || DrName == '')" class="mt-1 error">
+                                    <div class="text-danger">Doctor Name is Required.</div>
+                                </div>
+                            </div>
 
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="text-input">Institution / University</label>
-                          <div class="col-md-9">
-                              <input type="text" id="text-input" [(ngModel)]="Institution" name="Institution" class="form-control" placeholder="Institution / University">
-                              <!-- <span class="help-block">This is a help text</span> -->
-                          </div>
-                      </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Email Id <i class="fa fa-asterisk"
+                                    style="color: #f72a2a;font-size: 10px;" aria-hidden="true"></i></label>
+                            <div class="col-md-9">
+                                <input type="text" id="text-input" [(ngModel)]="Email_id" name="Email_id" [ngModelOptions]="{standalone: true}" (ngModelChange)="EmailidChange($event)" class="form-control" placeholder="Email Id">
+                                <!-- <span class="help-block">This is a help text</span> -->
+                                <div *ngIf="Email_idError" class="mt-1 error">
+                                    <div class="text-danger">Valid Email Address Required.</div>
+                                </div>
+                                <div *ngIf="Validation == false && Email_id == undefined" class="mt-1 error">
+                                    <div class="text-danger">Valid Email Address Required.</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Password <i class="fa fa-asterisk"
+                                    style="color: #f72a2a;font-size: 10px;" aria-hidden="true"></i></label>
+                            <div class="col-md-9">
+                                <input type="password" id="text-input" [(ngModel)]="Password" name="Password" class="form-control" placeholder="Password">
+                                <!-- <span class="help-block">This is a help text</span> -->
+                                <div *ngIf="Validation == false && (Password == undefined || Password == '' || Password.length < 6)" class="mt-1 error">
+                                    <div class="text-danger">Password is Required (Minimum 6 characters).</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Phone Number <i
+                                    class="fa fa-asterisk" style="color: #f72a2a;font-size: 10px;"
+                                    aria-hidden="true"></i></label>
+                            <div class="col-md-9">
+                                <input type="text" id="text-input" [(ngModel)]="Phone_number" name="Phone_number" maxlength="10" (keypress)=_keyPress($event) class="form-control" placeholder="Phone Number">
+                                <!-- <span class="help-block">This is a help text</span> -->
+                                <div *ngIf="Validation == false && (Phone_number == undefined || Phone_number == '')" class="mt-1 error">
+                                    <div class="text-danger">Phone Number is Required.</div>
+                                </div>
+                            </div>
+                        </div>
 
 
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="text-input">Year of Passing Of Highest Qualification</label>
-                          <div class="col-md-9">
-                              <select style="width: 200px;" class="form-control" [(ngModel)]="YOP" name="YOP">
-                                  <ng-container *ngFor="let y of year">
-                                      <option value="{{y}}">{{y}}</option>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Gender <i class="fa fa-asterisk"
+                                    style="color: #f72a2a;font-size: 10px;" aria-hidden="true"></i></label>
+
+                            <div class="col-md-9">
+                                <select id="select1" name="select1" class="form-control" [(ngModel)]="Gender" (ngModelChange)="ch()" name="Gender">
+                                    <option style="display: none;" value=undefined selected disabled>Select</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                                <div *ngIf="Validation == false && Gender == undefined" class="mt-1 error">
+                                    <div class="text-danger">Gender is Required.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Date of birth</label>
+                            <div class="col-md-9">
+                                <input type="Date" id="text-input" [(ngModel)]="DOB" name="DOB" [max]="maxDate | date:'yyyy-MM-dd'" class="form-control" placeholder="Text">
+                                <!-- <span class="help-block">This is a help text</span> -->
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Languages Knowns</label>
+
+                            <div class="col-md-9">
+                                <table style="border: 1px solid black; width: 100%;">
+                                    <tr style="border: 1px solid black;background-color: gray;">
+                                        <td style="border: 1px solid black;">S.no</td>
+                                        <td style="border: 1px solid black;">Languages</td>
+                                        <td style="border: 1px solid black;">Action</td>
+                                    </tr>
+                                    <tr style="border: 1px solid black;">
+                                        <td style="border: 1px solid black;"></td>
+                                        <td style="border: 1px solid black;">
+                                            <select style="width: 100%;" [(ngModel)]="Languages" name="Languages">
+                                                <option value="" disabled selected hidden>Select Language</option>
+                                                <ng-container *ngFor="let Spec of language">
+                                                    <option value="{{Spec.Languages}}">{{Spec.Languages}}</option>
+                                                </ng-container>
+                                                <!-- <option value="volvo">Tamil</option> -->
+                                            </select>
+                                        </td>
+                                        <td style="border: 1px solid black;"><button class="add-btn" (click)="addlanguage()">Add</button>
+                                        </td>
+                                    </tr>
+                                    <ng-container *ngFor="let item of LanguagesList; let i = index;">
+                                        <tr style="border: 1px solid black;">
+                                            <td style="border: 1px solid black;">{{i+1}}</td>
+
+                                            <td style="border: 1px solid black;">{{item}}</td>
+
+                                            <td style="border: 1px solid black;"><button class="add-btn" (click)="deletelanguage(i)">Delete</button></td>
+                                        </tr>
+                                    </ng-container>
+
+
+                                </table>
+                                <!-- <span class="help-block">This is a help text</span> -->
+                                <!-- <span class="help-block">This is a help text</span> -->
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Qualifications <i
+                                    class="fa fa-asterisk" style="color: #f72a2a;font-size: 10px;"
+                                    aria-hidden="true"></i></label>
+                            <div class="col-md-9">
+                                <input type="text" id="text-input" [(ngModel)]="Qualifications" name="Qualifications" class="form-control" placeholder="Qualifications">
+                                <!-- <span class="help-block">This is a help text</span> -->
+                                <div *ngIf="Validation == false && (Qualifications == undefined || Qualifications == '')" class="mt-1 error">
+                                    <div class="text-danger">Qualifications is Required.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Institution / University</label>
+                            <div class="col-md-9">
+                                <input type="text" id="text-input" [(ngModel)]="Institution" name="Institution" class="form-control" placeholder="Institution / University">
+                                <!-- <span class="help-block">This is a help text</span> -->
+                                <div *ngIf="Validation == false && Institution == undefined" class="mt-1 error">
+                                    <div class="text-danger">Institution is Required.</div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Year of Passing Of Highest
+                                Qualification</label>
+                            <div class="col-md-9">
+                                <select style="width: 200px;" class="form-control" [(ngModel)]="YOP" name="YOP">
+                                    <option style="display: none;" value=undefined selected disabled>Select</option>
+                                    <ng-container *ngFor="let y of year">
+                                        <option value="{{y}}">{{y}}</option>
                                     </ng-container>
                                 </select>
-                              <!-- <input type="text" id="text-input" [(ngModel)]="YOP" maxlength="4" (keypress)=_keyPress($event) name="YOP" class="form-control" placeholder="Year of Passing Of Highest Qualification"> -->
-                              <!-- <span class="help-block">This is a help text</span> -->
-                          </div>
-                      </div>
+                                <!-- <input type="text" id="text-input" [(ngModel)]="YOP" maxlength="4" (keypress)=_keyPress($event) name="YOP" class="form-control" placeholder="Year of Passing Of Highest Qualification"> -->
+                                <!-- <span class="help-block">This is a help text</span> -->
+                            </div>
+                        </div>
 
 
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="text-input">Specialization<i class="fa fa-asterisk" style="color: #f72a2a;font-size: 10px;" aria-hidden="true"></i></label>
-                          <div class="col-md-9">
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Specialization <i
+                                    class="fa fa-asterisk" style="color: #f72a2a;font-size: 10px;"
+                                    aria-hidden="true"></i></label>
+                            <div class="col-md-9">
 
+                                <table style="border: 1px solid black; width: 100%;">
+                                    <tr style="border: 1px solid black;background-color: gray;">
+                                        <td style="border: 1px solid black;">S.no</td>
+                                        <td style="border: 1px solid black;">Specialization</td>
+                                        <td style="border: 1px solid black;">Action</td>
+                                    </tr>
+                                    <tr style="border: 1px solid black;">
+                                        <td style="border: 1px solid black;"></td>
+                                        <td style="border: 1px solid black;">
+                                            <select style="width: 100%;" [(ngModel)]="Specialisation" name="Specialisation">
+                                                <option value="" disabled selected hidden>Select Specialization</option>
+                                                <ng-container *ngFor="let Spec of specialization">
+                                                    <option value="{{Spec.Specialization}}">{{Spec.Specialization}}
+                                                    </option>
+                                                </ng-container>
+                                            </select>
 
-                              <table style="border: 1px solid black; width: 100%;">
-                                  <tr style="border: 1px solid black;background-color: gray;">
-                                      <td style="border: 1px solid black;">S.no</td>
-                                      <td style="border: 1px solid black;">Specialization</td>
-                                      <td style="border: 1px solid black;">Action</td>
-                                  </tr>
-                                  <tr style="border: 1px solid black;">
-                                      <td style="border: 1px solid black;"></td>
-                                      <td style="border: 1px solid black;">
-                                          <select style="width: 100%;" [(ngModel)]="Specialisation" name="Specialisation">
-                      <option value="" disabled selected hidden>Select Specialization</option>
-                      <ng-container *ngFor="let Spec of specialization">
-                        <option value="{{Spec.Specialization}}">{{Spec.Specialization}}</option>
-                      </ng-container>
-                    </select>
-
-                                      </td>
-                                      <td style="border: 1px solid black;"><button class="add-btn" (click)="addSpecialisation()">Add</button></td>
-                                  </tr>
-                                  <ng-container *ngFor="let item of SpecialisationList; let i = index;">
-                                      <tr style="border: 1px solid black;">
-                                          <td style="border: 1px solid black;">{{i+1}}</td>
-                                          <td style="border: 1px solid black;">{{item}}</td>
-                                          <td style="border: 1px solid black;"><button class="add-btn" (click)="deleteSpecialisation(i)">Delete</button></td>
-                                      </tr>
-                                  </ng-container>
-                              </table>
-                              <div *ngIf="Validation == false && Specialisation == ''" class="mt-1 error">
-                                  <div class="text-danger">Specialization is Required.</div>
-                              </div>
-                              <!-- <span class="help-block">This is a help text</span> -->
-                          </div>
-                      </div>
-
-
-
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="text-input">Overall Experience</label>
-                          <div class="col-md-9">
-                              <input type="text" id="text-input" [(ngModel)]="OverallExp" name="OverallExp" class="form-control" placeholder="Overall Experience">
-                              <!-- <span class="help-block">This is a help text</span> -->
-                          </div>
-                      </div>
-
-
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="text-input">Speical Mention, if any (Eg. Worked with US public
-              health - 10 years,worked in apollo Hosptials - 5 years)</label>
-                          <div class="col-md-9">
-                              <textarea id="textarea-input" name="textarea-input" [(ngModel)]="Special" name="Special" rows="9" class="form-control" placeholder="speical Mention.."></textarea>
-                              <!-- <input type="text" id="text-input"  class="form-control" placeholder="Text"> -->
-                              <!-- <span class="help-block">This is a help text</span> -->
-                          </div>
-                      </div>
-
-
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="text-input">Current Location</label>
-                          <div class="col-md-9">
-                              <input type="text" id="text-input" [(ngModel)]="Current_location" name="Current_location" class="form-control" placeholder="Current Location">
-                              <!-- <span class="help-block">This is a help text</span> -->
-                          </div>
-                      </div>
+                                        </td>
+                                        <td style="border: 1px solid black;"><button class="add-btn" (click)="addSpecialisation()">Add</button></td>
+                                    </tr>
+                                    <ng-container *ngFor="let item of SpecialisationList; let i = index;">
+                                        <tr style="border: 1px solid black;">
+                                            <td style="border: 1px solid black;">{{i+1}}</td>
+                                            <td style="border: 1px solid black;">{{item}}</td>
+                                            <td style="border: 1px solid black;"><button class="add-btn" (click)="deleteSpecialisation(i)">Delete</button></td>
+                                        </tr>
+                                    </ng-container>
+                                </table>
+                                <div *ngIf="Validation == false && Specialisation == ''" class="mt-1 error">
+                                    <div class="text-danger">Specialization is Required.</div>
+                                </div>
+                                <!-- <span class="help-block">This is a help text</span> -->
+                            </div>
+                        </div>
 
 
 
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="text-input">Currently Employed at</label>
-                          <div class="col-md-9">
-                              <input type="text" id="text-input" [(ngModel)]="Current_employe_at" name="Current_employe_at" class="form-control" placeholder="Current Employed at">
-                              <!-- <span class="help-block">This is a help text</span> -->
-                          </div>
-                      </div>
-
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="text-input">Hours per day available for salveo online
-              consultation</label>
-                          <div class="col-md-9">
-                              <input type="text" id="text-input" (keypress)=_keyPress($event) [(ngModel)]="hours_per_day" name="hours_per_day" class="form-control" placeholder="Hours per day available for salveo online consultation">
-                              <!-- <span class="help-block">This is a help text</span> -->
-                          </div>
-                      </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Overall Experience</label>
+                            <div class="col-md-9">
+                                <input type="text" id="text-input" [(ngModel)]="OverallExp" name="OverallExp" class="form-control" placeholder="Overall Experience">
+                                <!-- <span class="help-block">This is a help text</span> -->
+                            </div>
+                        </div>
 
 
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="text-input">Currently engaged in online consultation: Yes /
-              No</label>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Speical Mention, if any (Eg. Worked
+                                with US public
+                                health - 10 years,worked in apollo Hosptials - 5 years)</label>
+                            <div class="col-md-9">
+                                <textarea id="textarea-input" name="textarea-input" [(ngModel)]="Special" name="Special" rows="9" class="form-control" placeholder="speical Mention.."></textarea>
+                                <!-- <input type="text" id="text-input"  class="form-control" placeholder="Text"> -->
+                                <!-- <span class="help-block">This is a help text</span> -->
+                            </div>
+                        </div>
 
 
-                          <div class="col-md-9">
-                              <select id="select1" name="select1" class="form-control" [(ngModel)]="current_engaged" name="current_engaged">
-                <option value="1">Yes</option>
-                <option value="0">No</option>
-              </select>
-                          </div>
-
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Current Location</label>
+                            <div class="col-md-9">
+                                <input type="text" id="text-input" [(ngModel)]="Current_location" name="Current_location" class="form-control" placeholder="Current Location">
+                                <!-- <span class="help-block">This is a help text</span> -->
+                            </div>
+                        </div>
 
 
 
-                      </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Currently Employed at</label>
+                            <div class="col-md-9">
+                                <input type="text" id="text-input" [(ngModel)]="Current_employe_at" name="Current_employe_at" class="form-control" placeholder="Current Employed at">
+                                <!-- <span class="help-block">This is a help text</span> -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Hours per day available for salveo
+                                online
+                                consultation</label>
+                            <div class="col-md-9">
+                                <input type="text" id="text-input" (keypress)=_keyPress($event) [(ngModel)]="hours_per_day" name="hours_per_day" class="form-control" placeholder="Hours per day available for salveo online consultation">
+                                <!-- <span class="help-block">This is a help text</span> -->
+                            </div>
+                        </div>
 
 
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="text-input">Available type</label>
-                          <div class="col-md-9">
-                              <input type="text" [(ngModel)]="Available_type" name="Available_type" id="text-input" class="form-control" placeholder="Day/Night">
-                              <!-- <span class="help-block">This is a help text</span> -->
-                          </div>
-                      </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Currently engaged in online
+                                consultation: Yes /
+                                No</label>
 
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="text-input">Service</label>
-                          <div class="col-md-9">
-                              <input type="text" [(ngModel)]="Service" name="Service" id="text-input" class="form-control" placeholder="Service">
-                              <!-- <input type="checkbox" id="vehicle1" name="vehicle1" value="Chat">
+
+                            <div class="col-md-9">
+                                <select id="select1" name="select1" class="form-control" [(ngModel)]="current_engaged" name="current_engaged">
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+
+
+
+
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Available type</label>
+                            <div class="col-md-9">
+                                <input type="text" [(ngModel)]="Available_type" name="Available_type" id="text-input" class="form-control" placeholder="Day/Night">
+                                <!-- <span class="help-block">This is a help text</span> -->
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Service</label>
+                            <div class="col-md-9">
+                                <!-- <input type="text" [(ngModel)]="Service" name="Service" id="text-input" class="form-control" placeholder="Service"> -->
+                                <div class="col-md-12 ">
+                                    <p-radioButton name="group1" value="Chat" label="Chat" [(ngModel)]="Service" inputId="opt1" style="margin-right: 15px;"></p-radioButton>
+                                    <p-radioButton name="group1" value="Video" label="Video" [(ngModel)]="Service" inputId="opt2"></p-radioButton>
+
+                                </div>
+                                <!-- <input type="checkbox" id="vehicle1" name="vehicle1" value="Chat">
               <label for="vehicle1" style="padding-right: 10px;color: #73818f;"> Chat</label>
               <input type="checkbox" id="vehicle2" name="vehicle2" value="Video">
               <label for="vehicle2" style="color: #73818f;"> Video</label><br> -->
-                              <!-- <span class="help-block">This is a help text</span> -->
-                          </div>
-                      </div>
+                                <!-- <span class="help-block">This is a help text</span> -->
+                            </div>
+                        </div>
 
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="text-input">Charge Per Appointment</label>
-                          <div class="col-md-9">
-                              <input type="text" (keypress)=_keyPress($event) [(ngModel)]="Charge_Per_15min" name="Charge_Per_15min" id="text-input" class="form-control" placeholder="Charge Per Appointment">
-                              <!-- <span class="help-block">This is a help text</span> -->
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="text-input">Salveo Charges <i class="fa fa-asterisk" style="color: #f72a2a;font-size: 10px;" aria-hidden="true"></i></label>
-                          <div class="col-md-9">
-                              <input type="text" (keypress)=_keyPress($event) [(ngModel)]="Charge_Salveo" name="Charge_Salveo" id="text-input" class="form-control" placeholder="Salveo Charges">
-                              <!-- <span class="help-block">This is a help text</span> -->
-                              <div *ngIf="Validation == false && Charge_Salveo == undefined" class="mt-1 error">
-                                  <div class="text-danger">Salveo Charges is Required.</div>
-                              </div>
-                          </div>
-                      </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Charge Per Appointment <i
+                                    class="fa fa-asterisk" style="color: #f72a2a;font-size: 10px;"
+                                    aria-hidden="true"></i></label>
+                            <div class="col-md-9">
+                                <input type="text" (keypress)=_keyPress($event) [(ngModel)]="Charge_Per_15min" (ngModelChange)="ch()" name="Charge_Per_15min" class="form-control" placeholder="Charge Per Appointment">
+                                <!-- <span class="help-block">This is a help text</span> -->
+                                <div *ngIf="Validation == false && Charge_Per_15min == undefined" class="mt-1 error">
+                                    <div class="text-danger">Charge Per Appointment is Required.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Salveo Charges <i
+                                    class="fa fa-asterisk" style="color: #f72a2a;font-size: 10px;"
+                                    aria-hidden="true"></i></label>
+                            <div class="col-md-9">
+                                <input type="text" (keypress)=_keyPress($event) [(ngModel)]="Charge_Salveo" name="Charge_Salveo" id="text-input" class="form-control" placeholder="Salveo Charges">
+                                <!-- <span class="help-block">This is a help text</span> -->
+                                <div *ngIf="Validation == false && Charge_Salveo == undefined" class="mt-1 error">
+                                    <div class="text-danger">Salveo Charges is Required.</div>
+                                </div>
+                            </div>
+                        </div>
 
 
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="text-input">Additional Information, if any</label>
-                          <div class="col-md-9">
-                              <textarea id="textarea-input" name="textarea-input" rows="9" [(ngModel)]="Additional_info" name="Additional_info" class="form-control" placeholder="Additional Information.."></textarea>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="text-input">Additional Information, if
+                                any</label>
+                            <div class="col-md-9">
+                                <textarea id="textarea-input" name="textarea-input" rows="9" [(ngModel)]="Additional_info" name="Additional_info" class="form-control" placeholder="Additional Information.."></textarea>
 
-                              <!-- <input type="text" id="text-input"  class="form-control" placeholder="Text"> -->
-                              <!-- <span class="help-block">This is a help text</span> -->
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-md-3 col-form-label" for="file-input">File Attached</label>
-                          <div class="col-md-9">
-                              <table style="border: 1px solid black; width: 100%;">
-                                  <tr style="border: 1px solid black;background-color: gray;">
-                                      <td style="border: 1px solid black;">S.no</td>
-                                      <td style="border: 1px solid black;">File_title</td>
-                                      <td style="border: 1px solid black;">File_path</td>
-                                      <td style="border: 1px solid black;">Action</td>
-                                  </tr>
-                                  <tr style="border: 1px solid black;">
-                                      <td style="border: 1px solid black;"><input type="" disabled></td>
-                                      <td style="border: 1px solid black;"><input type="text" [(ngModel)]="File_name" name="File_name">
-                                      </td>
-                                      <td style="border: 1px solid black;"><input type="file" (change)="fileupload($event)"></td>
-                                      <td style="border: 1px solid black;"><button class="add-btn" (click)="addfiles()">Add</button></td>
-                                  </tr>
-                                  <ng-container *ngFor="let item of File_list; let i = index;">
-                                      <tr style="border: 1px solid black;">
-                                          <td style="border: 1px solid black;">{{i+1}}</td>
-                                          <td style="border: 1px solid black;">{{item.title}}</td>
-                                          <td style="border: 1px solid black;">{{item.path}}</td>
-                                          <td style="border: 1px solid black;"><button (click)="deletefile(i)">Delete</button></td>
-                                      </tr>
-                                  </ng-container>
-                              </table>
-                          </div>
-                      </div>
+                                <!-- <input type="text" id="text-input"  class="form-control" placeholder="Text"> -->
+                                <!-- <span class="help-block">This is a help text</span> -->
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="file-input">File Attached</label>
+                            <div class="col-md-9">
+                                <table style="border: 1px solid black; width: 100%;">
+                                    <tr style="border: 1px solid black;background-color: gray;">
+                                        <td style="border: 1px solid black;">S.no</td>
+                                        <td style="border: 1px solid black;">File_title</td>
+                                        <td style="border: 1px solid black;">File_path</td>
+                                        <td style="border: 1px solid black;">Action</td>
+                                    </tr>
+                                    <tr style="border: 1px solid black;">
+                                        <td style="border: 1px solid black;"><input type="" disabled></td>
+                                        <td style="border: 1px solid black;"><input type="text" [(ngModel)]="File_name" name="File_name">
+                                        </td>
+                                        <td style="border: 1px solid black;"><input type="file" (change)="fileupload($event)"></td>
+                                        <td style="border: 1px solid black;"><button class="add-btn" (click)="addfiles()">Add</button></td>
+                                    </tr>
+                                    <ng-container *ngFor="let item of File_list; let i = index;">
+                                        <tr style="border: 1px solid black;">
+                                            <td style="border: 1px solid black;">{{i+1}}</td>
+                                            <td style="border: 1px solid black;">{{item.title}}</td>
+                                            <td style="border: 1px solid black;">{{item.path}}</td>
+                                            <td style="border: 1px solid black;"><button (click)="deletefile(i)">Delete</button></td>
+                                        </tr>
+                                    </ng-container>
+                                </table>
+                            </div>
+                        </div>
 
-                  </form>
-                  <div class="card-footer">
-                      <button type="submit" class="btn btn-sm btn-primary" (click)="submit()"><i class="fa fa-dot-circle-o"></i>
-            Submit</button>
-                      <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <!--/.row-->
+                    </form>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-sm btn-primary" (click)="submit()">
+                            Submit</button>
+                        <button type="reset" class="btn btn-sm btn-danger">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/.row-->
 </div>

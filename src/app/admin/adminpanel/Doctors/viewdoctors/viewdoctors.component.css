@@ -1,0 +1,29 @@
+.add-btn {
+    border: none;
+    background: #2896bc;
+    color: #fff;
+}
+
+.round {
+    float: right;
+    position: absolute;
+    right: 30px;
+    top: 0px;
+}
+
+.form-control,
+textarea.form-control {
+    margin-bottom: 5px !important;
+}
+
+.text-danger {
+    color: #ea5855 !important;
+    font-size: 11px !important;
+}
+
+.btn {
+    padding: 6px !important;
+    width: auto;
+    height: auto !important;
+    ;
+}

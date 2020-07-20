@@ -16,12 +16,16 @@ import { ListdoctorsComponent } from './adminpanel/Doctors/listdoctors/listdocto
 import { ViewdoctorsComponent } from './adminpanel/Doctors/viewdoctors/viewdoctors.component';
 import { LivedoctorsComponent } from './adminpanel/Doctors/livedoctors/livedoctors.component';
 
-
+import { ProfileComponent } from './adminpanel/Doctors/profile/profile.component';
+import { CreateCompanyComponent } from './adminpanel/create-company/create-company.component';
+import { CompanyListComponent } from './adminpanel/company-list/company-list.component';
 const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'dashboard', component: DashboardComponent },
 
-
+  { path: 'create_company', component: CreateCompanyComponent },
+  { path: 'profile_view', component: ProfileComponent },
+  { path: 'company_list', component: CompanyListComponent },
 
   {
     path: 'Patient_list',
@@ -99,8 +103,8 @@ const routes: Routes = [
     path: 'live_doctors_list',
     component: LivedoctorsComponent,
 
-  }
-
+  },
+  
 
 ];
 
