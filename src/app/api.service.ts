@@ -26,12 +26,16 @@ export class ApiService {
     return this.http.get(this.apiUrl + 'doctor/getlist');
   }
 
+  EditDoctor(data){
+    return this.http.post(this.apiUrl + 'doctor/edit', data);
+  }
+
   CreateLiveDoctor(data) {
     return this.http.post(this.apiUrl + 'livedoctors/signup', data);
   }
 
   EditLiveDoctor(data) {
-    return this.http.post(this.apiUrl + 'livedoctors/edit', data);
+    return this.http.post(this.apiUrl + 'livedoctors/edits', data);
   }
 
   LiveDoctorList() {

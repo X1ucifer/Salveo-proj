@@ -290,7 +290,7 @@ export class ViewdoctorsComponent implements OnInit {
             alert("There Was a Problem in register this doctor try it again");
           }else{
             alert('Data Uploaded SuccessFully');
-            this.router.navigate(['Home/Doctor', 'List_doctors']);
+            this.router.navigate(['admin_panel', 'List_doctors']);
           }
         }
       );

@@ -52,6 +52,7 @@ export class CreatedoctorsComponent  {
      this._api.specializationList().subscribe((res) => {
       console.log(res)
       this.specialization = res.Data;
+      this.Specialisation = 'Select Specialization';
     })
     this._api.languageList().subscribe((res)=>{
       console.log(res)
@@ -92,18 +93,25 @@ export class CreatedoctorsComponent  {
 
   addSpecialisation()
 {
-
-  if(this.Specialisation == ""){
+  let check = 0;
+  console.log(this.SpecialisationList);
+  for(var a = 0 ; a < this.SpecialisationList.length ; a ++){
+    console.log(this.SpecialisationList[a],this.Specialisation);
+   if(this.SpecialisationList[a] == this.Specialisation){
+    check = 1;
+   }
+  }
+  if(check == 0){
+  if(this.Specialisation == "Select Specialization"){
     alert('Enter Specialisation');
   }
   else{
     this.SpecialisationList.push(this.Specialisation);
-    this.Specialisation = '';
+    this.Specialisation = 'Select Specialization';
   }
-
-
-
-
+}else{
+  alert('This Specialisation is already added');
+}
 }
 
 
@@ -240,7 +248,7 @@ submit()
           "HighestQualifications": this.Institution,
           "Specilization": this.SpecialisationList,
           "Year_of_Passout": this.YOP,
-          "Current_location": "",
+          "Current_location": this.Current_location,
           "Experience": this.OverallExp,
           "Current_employee_id": "",
           "EmployeeAt":this.Current_employe_at,
@@ -266,8 +274,8 @@ submit()
           if(response.Code == 300){
             alert("There Was a Problem in register this doctor try it again");
           }else{
-            alert('Data Uploaded SuccessFully');
-            this.router.navigate(['Home/Doctor', 'List_doctors']);
+            alert('Doctor Created successfully');
+            this.router.navigate(['admin_panel', 'List_doctors']);
 
 
           }
@@ -298,8 +306,10 @@ _keyPress(event: any) {
   }
 }
 validation(){
-  // console.log(this.Charge_Per_15min)
-  if(this.DrName == undefined || this.Email_id ==undefined || (this.Password == undefined || this.Password.length < 6 ) || this.Phone_number == undefined || (this.Specialisation == '' && this.SpecialisationList.length < 1 )|| this.Charge_Salveo == undefined || this.Charge_Per_15min == undefined || this.Gender == undefined || this.Qualifications == undefined || this.Institution == undefined){
+    console.log(this.Specialisation);
+    console.log(this.SpecialisationList.length);
+    console.log(this.SpecialisationList);
+  if(this.DrName == undefined || this.Email_id ==undefined || (this.Password == undefined || this.Password.length < 6 ) || this.Phone_number == undefined || this.SpecialisationList.length == 0 || this.Charge_Salveo == undefined || this.Charge_Per_15min == undefined || this.Gender == undefined || this.Qualifications == undefined || this.Institution == undefined){
     this.Validation = false;
     console.log(this.DrName)
     console.log('asdff')

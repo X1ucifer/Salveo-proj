@@ -15,13 +15,8 @@
                                 <th>Patient Name</th>
                                 <th>Email ID</th>
                                 <th>Phone Number</th>
-                                <th>Password</th>
-                                <th>Logintype</th>
-                                <th style="width: 100px;">Notify</th>
-
-                                <th>Last Login</th>
-                                <th>Type</th>
                                 <th>Action</th>
+                                <th>View More</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -34,19 +29,11 @@
                                     <td>{{item.Email}}</td>
                                     <td>{{item.Phone}}</td>
                                     <td>{{item.Password}}</td>
-                                    <td>{{item.login_type}}</td>
-                                    <td>{{item.Notification_Token}}</td>
-                                    <td>{{item.last_login_time | date}}</td>
-                                    <td *ngIf="item.Type == 1">
-                                        <span class="badge badge-success">Doctor</span>
-                                    </td>
-                                    <td *ngIf="item.Type == 0">
-                                        <span class="badge badge-secondary">Patient</span>
-                                    </td>
                                     <td>
                                         <button (click)="DeletePatient(item._id)">Delete</button>
                                         <button (click)="ViewPatient(item)">View</button>
                                     </td>
+
                                 </tr>
                             </ng-container>
                         </tbody>

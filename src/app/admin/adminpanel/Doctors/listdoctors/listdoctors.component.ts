@@ -34,22 +34,19 @@ export class ListdoctorsComponent implements OnInit {
 
   ViewDoctors(data){
       this.saveInLocal('Doctor_Details', data);
-      console.log(data);
+
       this.router.navigateByUrl('admin_panel/view_doctors');
   }
 
   ngOnInit() {
-
     this._api.DoctorList().subscribe(
       (response: any) => {
-         console.log(response);
          this.Doctor_List = response.Data;
       }
       );
-
       this._api.LiveDoctorList().subscribe(
         (response: any) => {
-           console.log(response);
+
            this.Live_Doctor_List = response.Data;
         }
         );
@@ -61,12 +58,11 @@ export class ListdoctorsComponent implements OnInit {
 
   Makelive(data)
   {
-    console.log(data);
+
     if(data.Verification_Status == "not verified"){
        alert("Doctor not verified");
     }else {
     this.Live_Doctor_data = data;
-    console.log(data.Email);
     this.Live_Doctor_id = '';
     let checkdata = 0 ;
     for (let a = 0 ; a < this.Live_Doctor_List.length ; a++){
@@ -76,29 +72,50 @@ export class ListdoctorsComponent implements OnInit {
      }
     }
     if(checkdata == 0){
-      console.log("Insert Data");
+
       this.InsertLiveDoctor();
     }else {
-      console.log("Update Data");
+
       this.UpdateLiveDoctor();
     }
+    this.updatedoctor(data._id);
   }
   }
 
   DeleteDoctor(i){
     this._api.DeleteDoctor(i).subscribe(
       (response: any) => {
-         console.log(response);
+
          alert(response.message);
          this.ngOnInit();
          }
       );
   }
 
+   updatedoctor(id){
+    let data =
+  {
+      "_id" : id,
+      "Live_Status": 'Live'
+  }
+
+  this._api.EditDoctor(data).subscribe(
+    (response: any) => {
+
+      if(response.Code == 300){
+        alert("There Was a Problem in register this doctor try it again");
+      }else{
+        alert('Doctor Moved to Live');
+        this.ngOnInit();
+      }
+    }
+  );
+   }
+
 
 
   InsertLiveDoctor(){
-    console.log(this.Live_Doctor_data);
+
     let data =
     {
       "Pic" : this.Live_Doctor_data.Pic,
@@ -127,7 +144,7 @@ export class ListdoctorsComponent implements OnInit {
       "Service": this.Live_Doctor_data.Service,
       "Special_mention": this.Live_Doctor_data.Special_mention,
       "Charge_Per_15min": this.Live_Doctor_data.Charge_Per_15min,
-      "Live_Status": this.Live_Doctor_data.Live_Status,
+      "Live_Status": 'Live',
       "Verification_Status": this.Live_Doctor_data.Verification_Status,
       "Salveo_Price": this.Live_Doctor_data.Salveo_Price,
       "signature" : this.Live_Doctor_data.signature,
@@ -136,14 +153,13 @@ export class ListdoctorsComponent implements OnInit {
       "Doctor_Range":0
 
   }
-  console.log(data);
+
   this._api.CreateLiveDoctor(data).subscribe(
     (response: any) => {
-      console.log(response);
       if(response.Code == 300){
         alert("There Was a Problem in register this doctor try it again");
       }else{
-        alert('Data Uploaded SuccessFully');
+        alert('Doctor Moved to Live');
         this.ngOnInit();
       }
     }
@@ -153,7 +169,6 @@ export class ListdoctorsComponent implements OnInit {
 
 
   UpdateLiveDoctor(){
-    console.log(this.Live_Doctor_data);
     let data =
     {
       "_id": this.Live_Doctor_id,
@@ -194,11 +209,11 @@ export class ListdoctorsComponent implements OnInit {
   console.log(data);
   this._api.EditLiveDoctor(data).subscribe(
     (response: any) => {
-      console.log(response);
       if(response.Code == 300){
         alert("There Was a Problem in register this doctor try it again");
       }else{
-        alert('Data Uploaded SuccessFully and Made Live');
+        console.log(response.data);
+        alert('Doctor Made Live!');
         this.ngOnInit();
       }
     }
@@ -207,18 +222,16 @@ export class ListdoctorsComponent implements OnInit {
 
 
   verifydoctor(data){
-    console.log(data);
     let a = {
       "_id": data,
       "Verification_Status": "Verified"
     }
     this._api.CreateDoctor1(a).subscribe(
       (response: any) => {
-        console.log(response);
         if(response.Code == 300){
           alert("There Was a Problem in register this doctor try it again");
         }else{
-          alert('Data Uploaded SuccessFully and Made Live');
+          alert('Doctor Verified successfully!');
           this.ngOnInit();
         }
       }
@@ -233,9 +246,9 @@ export class ListdoctorsComponent implements OnInit {
     return this.storage.get(key);
    }
    ViewProfile(maindata){
-    
+
     this.saveInLocal('Doctor_Details', maindata);
-    console.log(maindata);
+
     this.router.navigateByUrl('admin_panel/profile_view')
     // const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
     //   width: '500px',
@@ -243,7 +256,6 @@ export class ListdoctorsComponent implements OnInit {
     // });
 
     // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed');
     // });
    }
 }

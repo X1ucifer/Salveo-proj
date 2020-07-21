@@ -96,8 +96,8 @@ export class CreateCompanyComponent implements OnInit {
         "ConsultantDoctorsRange_ALL": this.consultantdoc_all,
         "ConsultantDoctorsRange_Below": this.consultantdoc_below,
         "Prepaid_Amount": this.prepaid_amount,
-        "Used_Amount": undefined,
-        "Balance_Amount": undefined,
+        "Used_Amount": 0,
+        "Balance_Amount": 0,
         "DiscountOffered": this.discount_offered,
         "emp_no":this.emp_no
       }
@@ -106,18 +106,19 @@ export class CreateCompanyComponent implements OnInit {
         console.log(res)
         if (res.Code == 200) {
           alert('Company created successfully')
+          this.router.navigateByUrl('/admin_panel/company_list');
           this.clear();
         }
         else {
           alert('Error')
         }
-  
+
       });
     }
     else{
       alert('Fill all the fields')
   }
-   
+
   }
 
 

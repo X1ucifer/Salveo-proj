@@ -30,6 +30,8 @@ export class ListpatientsComponent implements OnInit {
       );
   }
 
+
+
   DeletePatient(i){
     this._api.DeletePatient(i).subscribe(
       (response: any) => {
@@ -43,7 +45,7 @@ export class ListpatientsComponent implements OnInit {
   ViewPatient(data) {
     this.saveInLocal('Patient_Details', data);
     console.log(data);
-    this.router.navigateByUrl('/Home/buttons/View_patient_profile');
+    this.router.navigateByUrl('/admin_panel/View_patient_profile');
   }
 
 
