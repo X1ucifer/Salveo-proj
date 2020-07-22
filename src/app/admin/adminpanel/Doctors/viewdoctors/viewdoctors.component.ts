@@ -54,6 +54,7 @@ export class ViewdoctorsComponent implements OnInit {
   maxDate:any = new Date();
   signature:any;
   year:any[]=[];
+  Charge_Salveo_total : any = 0;
   constructor(
     @Inject(SESSION_STORAGE) private storage: StorageService,
     private router: Router,
@@ -62,6 +63,9 @@ export class ViewdoctorsComponent implements OnInit {
     private ValidatorService: ValidatorService,
     private datePipe: DatePipe,
   ) {
+
+
+
     for(let a=1950; a <= 2020; a++){
       this.year.push(a)
     }
@@ -104,6 +108,19 @@ export class ViewdoctorsComponent implements OnInit {
     this.Current_location = this.Doctor_Detail.Current_location;
     this.Current_employe_at = this.Doctor_Detail.EmployeeAt;
     this.hours_per_day = this.Doctor_Detail.AvailableHours;
+
+    this.Charge_Salveo_total = this.Charge_Salveo ;
+
+
+    console.log(this.Charge_Salveo,this.Charge_Salveo_total,this.Charge_Per_15min);
+
+    this.Charge_Salveo = +this.Charge_Salveo_total - +this.Charge_Per_15min;
+
+     console.log(this.Charge_Salveo);
+
+    // this.Charge_Salveo =  this.Charge_Salveo_total - this.Charge_Per_15min;
+
+
   }
   isCollapsed: boolean = false;
   iconCollapse: string = 'icon-arrow-up';
@@ -112,6 +129,12 @@ export class ViewdoctorsComponent implements OnInit {
     // console.log(event);
   }
 
+
+
+  onSearchChange(item){
+    console.log("in");
+    this.Charge_Salveo_total = +this.Charge_Salveo + +this.Charge_Per_15min;
+  }
 
   addlanguage() {
     if (this.Languages == "") {
@@ -182,6 +205,12 @@ export class ViewdoctorsComponent implements OnInit {
   deleteSpecialisation(i) {
     this.SpecialisationList.splice(i, 1);
   }
+
+
+
+
+
+
 
 
   deletefile(i) {
@@ -276,11 +305,10 @@ export class ViewdoctorsComponent implements OnInit {
           "Charge_Per_15min": this.Charge_Per_15min,
           "File_list": this.File_list,
           "signature":  this.signature,
-          "Salveo_Price" : +this.Charge_Salveo,
+          "Salveo_Price" : +this.Charge_Salveo_total,
           "Verification_Status": this.verification,
           "Live_Status": "not live",
           "Gender": this.Gender,
-
       }
       console.log(data);
       this._api.CreateDoctor1(data).subscribe(

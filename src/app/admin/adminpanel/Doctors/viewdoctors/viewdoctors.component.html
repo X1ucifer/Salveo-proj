@@ -341,13 +341,24 @@
                                     class="fa fa-asterisk" style="color: #f72a2a;font-size: 10px;"
                                     aria-hidden="true"></i></label>
                             <div class="col-md-9">
-                                <input type="text" (keypress)=_keyPress($event) [(ngModel)]="Charge_Salveo" name="Charge_Salveo" id="text-input" class="form-control" placeholder="Salveo Charges">
+                                <input type="text" (keypress)=_keyPress($event) (input)="onSearchChange($event.target.value)" [(ngModel)]="Charge_Salveo" name="Charge_Salveo" id="text-input" class="form-control" placeholder="Salveo Charges">
                                 <!-- <span class="help-block">This is a help text</span> -->
                                 <div *ngIf="Validation == false && Charge_Salveo == undefined" class="mt-1 error">
                                     <div class="text-danger">Salveo Charges is Required.</div>
                                 </div>
                             </div>
                         </div>
+
+
+
+                        <div class="form-group row">
+                          <label class="col-md-3 col-form-label" for="text-input">Total Charges</label>
+                          <div class="col-md-9">
+                              <input type="text" (keypress)=_keyPress($event) disabled [(ngModel)]="Charge_Salveo_total" name="Charge_Salveo_total" id="text-input" class="form-control" placeholder="Salveo Charges">
+                              <!-- <span class="help-block">This is a help text</span> -->
+                          </div>
+                      </div>
+
 
 
                         <div class="form-group row">
