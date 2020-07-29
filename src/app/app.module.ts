@@ -18,6 +18,8 @@ import { DoctorCreateComponent } from './doctor-create/doctor-create.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { MatButtonModule } from '@angular/material/button';
+import {RadioButtonModule} from 'primeng/radiobutton';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +37,8 @@ import { MatButtonModule } from '@angular/material/button';
     AdminModule,
     HomepageModule,
     FormsModule,
-    MatButtonModule],
+    MatButtonModule,
+    RadioButtonModule],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],

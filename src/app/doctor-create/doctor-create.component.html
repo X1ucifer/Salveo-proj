@@ -177,7 +177,9 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label class="col-md-3 col-form-label" for="text-input">Institution / University</label>
+                                            <label class="col-md-3 col-form-label" for="text-input">Institution / University <i
+                                              class="fa fa-asterisk" style="color: #f72a2a;font-size: 10px;"
+                                              aria-hidden="true"></i></label>
                                             <div class="col-md-9">
                                                 <input type="text" id="text-input" [(ngModel)]="Institution" name="Institution" class="form-control" placeholder="Institution / University">
                                                 <!-- <span class="help-block">This is a help text</span> -->
@@ -220,7 +222,7 @@
                                                         <td style="border: 1px solid black;"></td>
                                                         <td style="border: 1px solid black;">
                                                             <select style="width: 100%;" [(ngModel)]="Specialisation" name="Specialisation">
-                                                                <option value="" disabled selected hidden>Select Specialization</option>
+                                                                <option value="Select Specialization" disabled selected hidden>Select Specialization</option>
                                                                 <ng-container *ngFor="let Spec of specialization">
                                                                     <option value="{{Spec.Specialization}}">{{Spec.Specialization}}
                                                                     </option>
@@ -238,7 +240,7 @@
                                                         </tr>
                                                     </ng-container>
                                                 </table>
-                                                <div *ngIf="Validation == false && Specialisation == ''" class="mt-1 error">
+                                                <div *ngIf="Validation == false && SpecialisationList.length == 0" class="mt-1 error">
                                                     <div class="text-danger">Specialization is Required.</div>
                                                 </div>
                                                 <!-- <span class="help-block">This is a help text</span> -->
@@ -257,9 +259,7 @@
 
 
                                         <div class="form-group row">
-                                            <label class="col-md-3 col-form-label" for="text-input">Speical Mention, if any (Eg. Worked
-                                                with US public
-                                                health - 10 years,worked in apollo Hosptials - 5 years)</label>
+                                            <label class="col-md-3 col-form-label" for="text-input">Doctor Brief</label>
                                             <div class="col-md-9">
                                                 <textarea id="textarea-input" name="textarea-input" [(ngModel)]="Special" name="Special" rows="9" class="form-control" placeholder="speical Mention.."></textarea>
                                                 <!-- <input type="text" id="text-input"  class="form-control" placeholder="Text"> -->
@@ -324,17 +324,18 @@
                                             </div>
                                         </div>
 
-                                        <div class="form-group row">
+                                        <!-- <div class="form-group row">
                                             <label class="col-md-3 col-form-label" for="text-input">Service</label>
                                             <div class="col-md-9">
                                                 <input type="text" [(ngModel)]="Service" name="Service" id="text-input" class="form-control" placeholder="Service">
-                                                <!-- <input type="checkbox" id="vehicle1" name="vehicle1" value="Chat">
-                              <label for="vehicle1" style="padding-right: 10px;color: #73818f;"> Chat</label>
-                              <input type="checkbox" id="vehicle2" name="vehicle2" value="Video">
-                              <label for="vehicle2" style="color: #73818f;"> Video</label><br> -->
-                                                <!-- <span class="help-block">This is a help text</span> -->
+                                                <div class="col-md-12 ">
+                                                    <p-radioButton name="group1" value="Chat" label="Chat" [(ngModel)]="Service" inputId="opt1" style="margin-right: 15px;"></p-radioButton>
+                                                    <p-radioButton name="group1" value="Video" label="Video" [(ngModel)]="Service" inputId="opt2"></p-radioButton>
+
+                                                </div>
+                                            
                                             </div>
-                                        </div>
+                                        </div> -->
 
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label" for="text-input">Charge Per Appointment <i
