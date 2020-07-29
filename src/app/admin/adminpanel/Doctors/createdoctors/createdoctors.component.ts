@@ -41,6 +41,7 @@ export class CreatedoctorsComponent  {
   selectedAudio: any;
   selectedAudio1:any;
   Charge_Salveo :any;
+  Charge_Salveo_total :any = 0;
   specialization:any;
   language:any;
   imageSrc:any;
@@ -170,6 +171,10 @@ addfiles(){
 }
 
 
+onSearchChange(item){
+  this.Charge_Salveo_total = +this.Charge_Salveo + +this.Charge_Per_15min;
+}
+
 fileupload(event){
   this.selectedAudio = event.target.files[0];
 }
@@ -263,7 +268,7 @@ submit()
           "Charge_Per_15min": this.Charge_Per_15min,
           "File_list": this.File_list,
           "signature":  "",
-          "Salveo_Price" : +this.Charge_Salveo,
+          "Salveo_Price" : +this.Charge_Salveo_total,
           "Verification_Status": "not verified",
           "Live_Status": "not live",
       }

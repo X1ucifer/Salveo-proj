@@ -20,7 +20,7 @@ data:any;
     private _api: ApiService,
     private ValidatorService: ValidatorService,
     private location: Location,
-  ) { 
+  ) {
     document.body.scrollTop = 0;
     this.data = this.getFromLocal('Doctor_Details');
     console.log(this.data);
@@ -33,9 +33,11 @@ data:any;
     return this.storage.get(key);
    }
   ngOnInit(): void {
-    
+
   }
-  
+
+
+
 back(){
   this.location.back();
 }
