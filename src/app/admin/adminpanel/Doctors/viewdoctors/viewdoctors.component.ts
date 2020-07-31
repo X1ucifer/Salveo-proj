@@ -307,7 +307,7 @@ export class ViewdoctorsComponent implements OnInit {
           "signature":  this.signature,
           "Salveo_Price" : +this.Charge_Salveo_total,
           "Verification_Status": this.verification,
-          "Live_Status": "not live",
+          "Live_Status": "Last Update Not Live",
           "Gender": this.Gender,
       }
       console.log(data);

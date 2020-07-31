@@ -87,23 +87,28 @@ export class DoctorCreateComponent  {
   }
 
 
-
   addSpecialisation()
 {
-
-  if(this.Specialisation == ""){
+  let check = 0;
+  console.log(this.SpecialisationList);
+  for(var a = 0 ; a < this.SpecialisationList.length ; a ++){
+    console.log(this.SpecialisationList[a],this.Specialisation);
+   if(this.SpecialisationList[a] == this.Specialisation){
+    check = 1;
+   }
+  }
+  if(check == 0){
+  if(this.Specialisation == "Select Specialization"){
     alert('Enter Specialisation');
   }
   else{
     this.SpecialisationList.push(this.Specialisation);
-    this.Specialisation = '';
+    this.Specialisation = 'Select Specialization';
   }
-
-
-
-
+}else{
+  alert('This Specialisation is already added');
 }
-
+}
 
 
 fileupload1(event){
@@ -297,7 +302,8 @@ _keyPress(event: any) {
 }
 validation(){
   // console.log(this.Charge_Per_15min)
-  if(this.DrName == undefined || this.Email_id ==undefined || (this.Password == undefined || this.Password.length < 6 ) || this.Phone_number == undefined || (this.Specialisation == '' && this.SpecialisationList.length < 1 )|| this.Charge_Salveo == undefined || this.Charge_Per_15min == undefined || this.Gender == undefined || this.Qualifications == undefined || this.Institution == undefined){
+  console.log(this.SpecialisationList,this.DrName,this.Email_id,this.Password,this.Phone_number,this.SpecialisationList,this.Charge_Salveo);
+  if(this.DrName == undefined || this.Email_id ==undefined || (this.Password == undefined || this.Password.length < 6 ) || this.Phone_number == undefined || this.SpecialisationList.length == 0 || this.Charge_Per_15min == undefined || this.Gender == undefined || this.Qualifications == undefined || this.Institution == undefined){
     this.Validation = false;
     console.log(this.DrName)
     console.log('asdff')

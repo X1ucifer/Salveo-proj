@@ -26,7 +26,7 @@ const routes: Routes = [
       },]
   },
   {
-    path: 'Create_Doctor_new',
+    path: 'doctor_form',
     component: DoctorCreateComponent,
 
   }
