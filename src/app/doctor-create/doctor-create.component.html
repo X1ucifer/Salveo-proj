@@ -222,7 +222,7 @@
                                                         <td style="border: 1px solid black;"></td>
                                                         <td style="border: 1px solid black;">
                                                             <select style="width: 100%;" [(ngModel)]="Specialisation" name="Specialisation">
-                                                                <option value="" disabled selected hidden>Select Specialization</option>
+                                                                <option value="Select Specialization" disabled selected hidden>Select Specialization</option>
                                                                 <ng-container *ngFor="let Spec of specialization">
                                                                     <option value="{{Spec.Specialization}}">{{Spec.Specialization}}
                                                                     </option>
@@ -259,9 +259,7 @@
 
 
                                         <div class="form-group row">
-                                            <label class="col-md-3 col-form-label" for="text-input">Speical Mention, if any (Eg. Worked
-                                                with US public
-                                                health - 10 years,worked in apollo Hosptials - 5 years)</label>
+                                            <label class="col-md-3 col-form-label" for="text-input">Doctor Brief</label>
                                             <div class="col-md-9">
                                                 <textarea id="textarea-input" name="textarea-input" [(ngModel)]="Special" name="Special" rows="9" class="form-control" placeholder="speical Mention.."></textarea>
                                                 <!-- <input type="text" id="text-input"  class="form-control" placeholder="Text"> -->
@@ -325,16 +323,6 @@
                                                 <!-- <span class="help-block">This is a help text</span> -->
                                             </div>
                                         </div>
-
-
-                                                <!-- <input type="checkbox" id="vehicle1" name="vehicle1" value="Chat">
-                              <label for="vehicle1" style="padding-right: 10px;color: #73818f;"> Chat</label>
-                              <input type="checkbox" id="vehicle2" name="vehicle2" value="Video">
-                              <label for="vehicle2" style="color: #73818f;"> Video</label><br> -->
-                                                <!-- <span class="help-block">This is a help text</span> -->
-                                            <!-- </div>
-                                        </div> -->
-
                                         <div class="form-group row">
                                             <label class="col-md-3 col-form-label" for="text-input">Charge Per Appointment <i
                                                     class="fa fa-asterisk" style="color: #f72a2a;font-size: 10px;"
