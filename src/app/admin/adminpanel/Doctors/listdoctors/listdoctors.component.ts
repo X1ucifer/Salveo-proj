@@ -83,11 +83,20 @@ export class ListdoctorsComponent implements OnInit {
   }
 
   DeleteDoctor(i){
-    this._api.DeleteDoctor(i).subscribe(
+    this._api.DeleteDoctor(i._id).subscribe(
       (response: any) => {
-
-         alert(response.message);
-         this.ngOnInit();
+         for (let a = 0 ; a < this.Live_Doctor_List.length ; a++){
+          if(this.Live_Doctor_List[a].Email == i.Email){
+            // this.Live_Doctor_id = this.Live_Doctor_List[a]._id;
+              this._api.LiveDeleteDoctor(this.Live_Doctor_List[a]._id).subscribe(
+                (response: any) => {
+                   console.log(response);
+                   alert(response.message);
+                   this.ngOnInit();
+                   }
+                );
+          }
+         }
          }
       );
   }
