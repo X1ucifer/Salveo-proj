@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { ApiService } from '../../../../api.service';
 import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-listdoctors',
@@ -25,7 +25,8 @@ export class ListdoctorsComponent implements OnInit {
     @Inject(SESSION_STORAGE) private storage: StorageService,
     private router: Router,
     private _api: ApiService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private datePipe: DatePipe
 
   ) {
 
@@ -129,7 +130,7 @@ export class ListdoctorsComponent implements OnInit {
     {
       "Pic" : this.Live_Doctor_data.Pic,
       "Name" : this.Live_Doctor_data.Name,
-      "DOB" :this.Live_Doctor_data.DOB,
+      "DOB" : this.datePipe.transform(this.Live_Doctor_data.DOB  ,"yyyy-MM-dd"),
       "Type":this.Live_Doctor_data.Type,
       "Gender": this.Live_Doctor_data.Gender,
       "Languages" : this.Live_Doctor_data.Languages,
@@ -183,7 +184,7 @@ export class ListdoctorsComponent implements OnInit {
       "_id": this.Live_Doctor_id,
       "Pic" : this.Live_Doctor_data.Pic,
       "Name" : this.Live_Doctor_data.Name,
-      "DOB" :this.Live_Doctor_data.DOB,
+      "DOB" :this.datePipe.transform(this.Live_Doctor_data.DOB  ,"yyyy-MM-dd"),
       "Gender": "Male",
       "Type":this.Live_Doctor_data.Type,
       "Languages" : this.Live_Doctor_data.Languages,

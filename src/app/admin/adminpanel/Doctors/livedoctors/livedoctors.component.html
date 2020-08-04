@@ -22,6 +22,7 @@
                               <th>Charges</th>
                               <th>Salveo Charges</th>
                               <th>Status</th>
+                              <th>Live Status</th>
                               <th>Action</th>
                           </tr>
                       </thead>
@@ -42,7 +43,7 @@
                                   <td>
                                       <span class="badge badge-success">Doctor</span>
                                   </td>
-
+                                  <td>{{item.Verification_Status}}</td>
                                   <td><button (click)="DeleteDoctor(item._id)">Delete</button> <button (click)="ViewDoctors(item)">View</button></td>
                               </tr>
                           </ng-container>

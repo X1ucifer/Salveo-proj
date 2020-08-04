@@ -29,6 +29,12 @@ export class CreateCompanyComponent implements OnInit {
   form_type: any = 'create';
   company_detail: any;
   emp_no: number;
+  Doctor_List : any = [];
+  Corporatecode_string : string;
+
+
+  Doctor_add_details : any = [];
+
   constructor(@Inject(SESSION_STORAGE) private storage: StorageService,
     private http: HttpClient, private _api: ApiService, private ValidatorService: ValidatorService, private router: Router,) { }
 
@@ -40,6 +46,30 @@ export class CreateCompanyComponent implements OnInit {
       this.form_data()
 
     }
+
+    this._api.LiveDoctorList().subscribe(
+      (response: any) => {
+         console.log(response);
+         for(let a = 0 ; a < response.Data.length ; a ++){
+           let da = {
+            _id : response.Data[a]._id,
+            Pic : response.Data[a].Pic ,
+            Name : response.Data[a].Name ,
+            Email : response.Data[a].Email ,
+            Phone : response.Data[a].Phone ,
+            Gender :response.Data[a].Gender ,
+            Experience : response.Data[a].Experience ,
+            Qualifications : response.Data[a].Qualifications ,
+            Charge_Per_15min : response.Data[a].Charge_Per_15min ,
+            Salveo_Price : response.Data[a].Salveo_Price ,
+            Verification_Status : response.Data[a].Verification_Status,
+            Status : true
+           }
+           this.Doctor_List.push(da);
+         }
+      }
+      );
+
   }
 
   form_data() {
@@ -81,6 +111,27 @@ export class CreateCompanyComponent implements OnInit {
       return true
     }
   }
+
+
+  add_doctor(item,i){
+  this.Doctor_List[i].Status = false;
+   console.log(item,i);
+   this.Doctor_add_details.push(item);
+   console.log(this.Doctor_add_details);
+  }
+
+  delete_doctor(item,i){
+    this.Doctor_List[i].Status = true;
+    console.log(item,i);
+    for(let a = 0 ; a <  this.Doctor_add_details.length ; a ++){
+      if(this.Doctor_add_details[a]==item){
+        this.Doctor_add_details.splice(a, 1);
+      }
+    }
+    console.log(this.Doctor_add_details);
+  }
+
+
   submit() {
     if(this.valitation() == true){
       if (this.consultantdoc_all == 'true') {
@@ -89,6 +140,7 @@ export class CreateCompanyComponent implements OnInit {
       let data = {
         "_id": "",
         "CompanyName": this.name,
+        "Corporatecode" : this.Corporatecode_string,
         "Location": this.location,
         "Coverage_Self": this.coverage_self,
         "Coverage_Family": this.coverage_family,
@@ -99,7 +151,8 @@ export class CreateCompanyComponent implements OnInit {
         "Used_Amount": 0,
         "Balance_Amount": 0,
         "DiscountOffered": this.discount_offered,
-        "emp_no":this.emp_no
+        "emp_no":this.emp_no,
+        "doctors_list": this.Doctor_add_details,
       }
       console.log(data)
       this._api.createcompany(data).subscribe((res: any) => {

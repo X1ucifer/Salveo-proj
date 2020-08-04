@@ -21,7 +21,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
-
+import { DatePipe } from '@angular/common';
 
 import { AccessrollComponent } from './adminpanel/mobilefeature/accessroll/accessroll.component';
 import { AdminusercreateComponent } from './adminpanel/mobilefeature/adminusercreate/adminusercreate.component';
@@ -81,6 +81,9 @@ import {RadioButtonModule} from 'primeng/radiobutton';
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA
+  ],
+  providers: [
+    DatePipe
   ],
   exports: [
     AdminHeaderComponent,

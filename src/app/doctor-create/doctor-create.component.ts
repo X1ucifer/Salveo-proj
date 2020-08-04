@@ -263,6 +263,7 @@ submit()
          "Salveo_Price" : +this.Charge_Salveo,
          "Verification_Status": "not verified",
          "Live_Status": "not live",
+         "KMS_registration": "",
      }
      console.log(data);
      this._api.CreateDoctor1(data).subscribe(

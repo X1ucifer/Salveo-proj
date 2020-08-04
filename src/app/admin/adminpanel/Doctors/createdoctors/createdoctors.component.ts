@@ -4,7 +4,7 @@ import { ApiService } from '../../../../api.service';
 // import { ThemeService } from 'ng2-charts';
 import {ValidatorService} from '../../../../validator.services';
 import { Router } from '@angular/router';
-
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-createdoctors',
@@ -49,7 +49,7 @@ export class CreatedoctorsComponent  {
   Validation : boolean;
   maxDate:any = new Date();
   year:any[]=[];
-  constructor(private http: HttpClient,private _api: ApiService,private ValidatorService:ValidatorService, private router: Router,   ) {
+  constructor(private http: HttpClient,private datePipe: DatePipe,private _api: ApiService,private ValidatorService:ValidatorService, private router: Router,   ) {
      this._api.specializationList().subscribe((res) => {
       console.log(res)
       this.specialization = res.Data;
@@ -242,7 +242,7 @@ submit()
           "_id": response.Data._id,
           "Pic" : this.Pic,
           "Name" : this.DrName,
-          "DOB" : this.DOB,
+          "DOB" :  this.datePipe.transform(this.DOB,"yyyy-MM-dd"),
           "Gender": this.Gender,
           "Type": 1,
           "Languages" : this.LanguagesList,
@@ -271,6 +271,7 @@ submit()
           "Salveo_Price" : +this.Charge_Salveo_total,
           "Verification_Status": "not verified",
           "Live_Status": "not live",
+          "KMS_registration": "",
       }
       console.log(data);
       this._api.CreateDoctor1(data).subscribe(

@@ -21,6 +21,17 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="col-md-4 in-box">
+                              <div class="">
+                                  <label class="col-form-label" for="text-input">Corporate code</label>
+                                  <div class="input-box">
+                                      <input type="text" [(ngModel)]="Corporatecode_string" id="text-input" name="Corporatecode_string" class="form-control" placeholder="Corporate code">
+                                      <!-- <span class="help-block">This is a help text</span> -->
+                                  </div>
+                              </div>
+                           </div>
+
                             <div class="col-md-4 in-box">
                                 <div class="">
                                     <label class=" col-form-label" for="text-input">Location</label>
@@ -101,6 +112,55 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-12 in-box">
+                              <div class="card-body">
+                                <table class="table table-bordered table-striped table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Select</th>
+                                            <th>S.No</th>
+                                            <th>DR PIC</th>
+                                            <th>DR Name</th>
+                                            <th>Email ID</th>
+                                            <th>Phone Number</th>
+                                            <th>Password</th>
+                                            <th>Exp</th>
+                                            <th>Qualifications</th>
+                                            <th>Doctor Charges</th>
+                                            <th>Total Charges</th>
+                                            <th>Status</th>
+                                            <th>Live Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <ng-container *ngFor="let item of Doctor_List; let i = index;">
+                                            <tr>
+                                                <td>
+                                                  <button *ngIf="item.Status == true" (click)="add_doctor(item._id,i)">Add</button>
+                                                  <button *ngIf="item.Status == false" (click)="delete_doctor(item._id,i)">Remove</button>
+
+                                                </td>
+                                                <td>{{i+1}}</td>
+                                                <td><img src="{{item.Pic}}" style="width: 50px;height: 50px;"></td>
+                                                <td>{{item.Name}}</td>
+                                                <td>{{item.Email}}</td>
+                                                <td>{{item.Phone}}</td>
+                                                <td>{{item.Password}}</td>
+                                                <td>{{item.Experience}}</td>
+                                                <td>{{item.Qualifications}}</td>
+                                                <td>{{item.Charge_Per_15min}}</td>
+                                                <td>{{item.Salveo_Price}}</td>
+                                                <td>
+                                                    <span class="badge badge-success">Doctor</span>
+                                                </td>
+                                                <td>{{item.Verification_Status}}</td>
+                                            </tr>
+                                        </ng-container>
+                                    </tbody>
+                                </table>
+                            </div>
+                            </div>
+
                             <div class="col-md-12 in-box">
                                 <div class="row">
                                     <div class="col-md-12 in-box">
