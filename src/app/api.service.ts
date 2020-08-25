@@ -35,8 +35,11 @@ export class ApiService {
   }
 
   EditLiveDoctor(data) {
-    return this.http.post(this.apiUrl + 'livedoctors/edits', data);
+    return this.http.post(this.apiUrl + 'livedoctors/liveedits', data);
   }
+
+
+
 
   LiveDoctorList() {
     return this.http.get(this.apiUrl + 'livedoctors/getlist');
