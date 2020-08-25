@@ -12,7 +12,8 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./createdoctors.component.css']
 })
 export class CreatedoctorsComponent  {
-  Doctor_title = "Dr"
+  Doctor_title = "Dr";
+  KMS_registration = "";
   Doctor_title_list = [];
   Pic:any = "";
   Available_type:any = "";
@@ -259,7 +260,7 @@ submit()
           "Gender": this.Gender,
           "HighestQualifications": this.Institution,
           "Information": this.Additional_info,
-          "KMS_registration": "",
+          "KMS_registration": this.KMS_registration,
           "Languages" : this.LanguagesList,
           "Live_Status": "not live",
           "Name" : this.DrName,
