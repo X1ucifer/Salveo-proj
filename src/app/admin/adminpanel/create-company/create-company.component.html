@@ -22,7 +22,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-4 in-box">
+                            <div class="col-md-4 in-box" *ngIf="form_type !== 'edit'">
                               <div class="">
                                   <label class="col-form-label" for="text-input">Corporate code</label>
                                   <div class="input-box">
@@ -31,6 +31,18 @@
                                   </div>
                               </div>
                            </div>
+
+
+                           <div class="col-md-4 in-box" *ngIf="form_type == 'edit'">
+                            <div class="">
+                                <label class="col-form-label" for="text-input">Corporate Code</label>
+                                <div class="input-box">
+                                    <input type="text" [(ngModel)]="Corporatecode_string" (keypress)=_keyPress($event) id="text-input" name="code" readonly class="form-control" placeholder="">
+                                    <!-- <span class="help-block">This is a help text</span> -->
+                                </div>
+                            </div>
+                        </div>
+
 
                             <div class="col-md-4 in-box">
                                 <div class="">
@@ -50,15 +62,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 in-box" *ngIf="form_type == 'edit'">
-                                <div class="">
-                                    <label class="col-form-label" for="text-input">Corporate Code </label>
-                                    <div class="input-box">
-                                        <input type="text" [(ngModel)]="Corporatecode" (keypress)=_keyPress($event) id="text-input" name="code" readonly class="form-control" placeholder="">
-                                        <!-- <span class="help-block">This is a help text</span> -->
-                                    </div>
-                                </div>
-                            </div>
+                            <div class="col-md-4 in-box">
+                              <div class="">
+                                  <label class="col-form-label" for="text-input">Employers IDs</label>
+                                  <div class="input-box">
+                                    <textarea class="form-control" placeholder="EMP1,EMP2,EMP3" [(ngModel)]="emp_codes" name="emp_codes"></textarea>
+                                      <!-- <span class="help-block">This is a help text</span> -->
+                                  </div>
+                              </div>
+                          </div>
+
+
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-12 in-box">
@@ -67,21 +81,21 @@
                                     <div class=" col-md-4 in-box">
                                         <label class="col-form-label" for="text-input">Self</label>
                                         <div class="input-box">
-                                            <input type="text" [(ngModel)]="coverage_self" id="text-input" (keypress)=_keyPress($event) name="self" class="form-control" placeholder="% Discount">
+                                            <input type="text" [(ngModel)]="coverage_self" id="text-input" maxlength="3" (keypress)=_keyPress($event) name="self" class="form-control" placeholder="% Discount">
                                             <!-- <span class="help-block">This is a help text</span> -->
                                         </div>
                                     </div>
                                     <div class=" col-md-4 in-box ">
                                         <label class="col-form-label" for="text-input">Family</label>
                                         <div class="input-box">
-                                            <input type="text" [(ngModel)]="coverage_family" id="text-input" (keypress)=_keyPress($event) name="family" class="form-control" placeholder="% Discount">
+                                            <input type="text" [(ngModel)]="coverage_family" id="text-input" maxlength="3" (keypress)=_keyPress($event) name="family" class="form-control" placeholder="% Discount">
                                             <!-- <span class="help-block">This is a help text</span> -->
                                         </div>
                                     </div>
                                     <div class=" col-md-4 in-box ">
                                         <label class="col-form-label" for="text-input">Parents</label>
                                         <div class="input-box">
-                                            <input type="text" [(ngModel)]="coverage_parent" id="text-input" (keypress)=_keyPress($event) name="parent" class="form-control" placeholder="% Discount">
+                                            <input type="text" [(ngModel)]="coverage_parent" id="text-input" maxlength="3" (keypress)=_keyPress($event) name="parent" class="form-control" placeholder="% Discount">
                                             <!-- <span class="help-block">This is a help text</span> -->
                                         </div>
                                     </div>
@@ -117,7 +131,10 @@
                                 <table class="table table-bordered table-striped table-sm">
                                     <thead>
                                         <tr>
-                                            <th>Select</th>
+                                            <th>Select
+                                              <button *ngIf="selectallbutton" (click)="selectall()">Select All</button>
+                                              <button *ngIf="!selectallbutton" (click)="deselectall()">Deselect All</button>
+                                            </th>
                                             <th>S.No</th>
                                             <th>DR PIC</th>
                                             <th>DR Name</th>
@@ -179,7 +196,7 @@
                                         <div class="">
                                             <label class="col-form-label" for="text-input">Balance Amount </label>
                                             <div class="input-box">
-                                                <input type="text" [(ngModel)]="Balance_Amount" (keypress)=_keyPress($event) id="text-input" name="bal" class="form-control" placeholder="" readonly>
+                                                <input type="text" [(ngModel)]="Balance_Amount" (keypress)=_keyPress($event) id="text-input" name="bal" class="form-control" placeholder="" >
                                                 <!-- <span class="help-block">This is a help text</span> -->
                                             </div>
                                         </div>
@@ -188,7 +205,7 @@
                                         <div class="">
                                             <label class="col-form-label" for="text-input">Used Amount </label>
                                             <div class="input-box">
-                                                <input type="text" [(ngModel)]="Used_Amount" (keypress)=_keyPress($event) id="text-input" name="use" class="form-control" placeholder="" readonly>
+                                                <input type="text" [(ngModel)]="Used_Amount" (keypress)=_keyPress($event) id="text-input" name="use" class="form-control" placeholder="" >
                                                 <!-- <span class="help-block">This is a help text</span> -->
                                             </div>
                                         </div>
@@ -197,7 +214,7 @@
                                         <div class="">
                                             <label class="col-form-label" for="text-input">Discount Offered </label>
                                             <div class="input-box">
-                                                <input type="text" [(ngModel)]="discount_offered " (keypress)=_keyPress($event) id="text-input" name="off" class="form-control" placeholder="Discount Offered ">
+                                                <input type="text" [(ngModel)]="discount_offered " (keypress)=_keyPress($event) maxlength="3" id="text-input" name="off" class="form-control" placeholder="Discount Offered ">
                                                 <!-- <span class="help-block">This is a help text</span> -->
                                             </div>
                                         </div>

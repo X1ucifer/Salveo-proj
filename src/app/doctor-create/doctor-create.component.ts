@@ -4,6 +4,8 @@ import { ApiService } from '../api.service';
 // import { ThemeService } from 'ng2-charts';
 import {ValidatorService} from '../validator.services';
 import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
+
 @Component({
   selector: 'app-doctor-create',
   templateUrl: './doctor-create.component.html',
@@ -46,7 +48,7 @@ export class DoctorCreateComponent  {
   Validation : boolean;
   maxDate:any = new Date();
   year:any[]=[];
-  constructor(private http: HttpClient,private _api: ApiService,private ValidatorService:ValidatorService, private router: Router,   ) {
+  constructor(private http: HttpClient,private datePipe: DatePipe,private _api: ApiService,private ValidatorService:ValidatorService, private router: Router,   ) {
     this._api.specializationList().subscribe((res) => {
      console.log(res)
      this.specialization = res.Data;
@@ -222,19 +224,18 @@ submit()
          "UpdatedAt" : ""+new Date(),
          "Lastlogin": ""+new Date()
      }
-     this._api.CreateDoctor(data).subscribe(
+   this._api.CreateDoctor(data).subscribe(
        (response: any) => {
          console.log(response);
          if(response.Code == 300){
            alert(response.Message);
          }else{
-
            let data =
        {
          "_id": response.Data._id,
          "Pic" : this.Pic,
          "Name" : this.DrName,
-         "DOB" : this.DOB,
+         "DOB" :  this.datePipe.transform(this.DOB  ,"yyyy-MM-dd"),
          "Gender": this.Gender,
          "Type": 1,
          "Languages" : this.LanguagesList,
@@ -245,13 +246,13 @@ submit()
          "HighestQualifications": this.Institution,
          "Specilization": this.SpecialisationList,
          "Year_of_Passout": this.YOP,
-         "Current_location": this.Current_location,
          "Experience": this.OverallExp,
-         "Current_employee_id": "",
          "EmployeeAt":this.Current_employe_at,
+         "Current_employee_id": "",
          "AvailableHours": this.hours_per_day,
          "OnlineConsultant":this.current_engaged,
          "Information": this.Additional_info,
+         "login_type" :"",
          "Updated_At": ""+new Date(),
          "last_login_time": ""+new Date(),
          "Available_type": this.Available_type,
@@ -263,10 +264,14 @@ submit()
          "Salveo_Price" : +this.Charge_Salveo,
          "Verification_Status": "not verified",
          "Live_Status": "not live",
+         "Notification_Token" : "",
+         "corporatecode" : "",
          "KMS_registration": "",
+         "Doctor_Range" : "",
+         "Profile_update_sts" :"",
      }
      console.log(data);
-     this._api.CreateDoctor1(data).subscribe(
+           this._api.CreateDoctor1(data).subscribe(
        (response: any) => {
          console.log(response);
          if(response.Code == 300){
@@ -274,8 +279,6 @@ submit()
          }else{
            alert('Doctor Created successfully');
            this.router.navigate(['admin_panel', 'List_doctors']);
-
-
          }
        }
      );

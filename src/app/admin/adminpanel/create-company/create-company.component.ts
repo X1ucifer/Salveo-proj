@@ -20,7 +20,7 @@ export class CreateCompanyComponent implements OnInit {
   coverage_family: number;
   coverage_parent: number;
   consultantdoc_all: any;
-  consultantdoc_below: number;
+  consultantdoc_below: number = 0;
   prepaid_amount: number;
   discount_offered: number;
   Corporatecode: any;
@@ -31,9 +31,12 @@ export class CreateCompanyComponent implements OnInit {
   emp_no: number;
   Doctor_List : any = [];
   Corporatecode_string : string;
+  emp_codes : string;
 
 
   Doctor_add_details : any = [];
+
+  selectallbutton : boolean = true;
 
   constructor(@Inject(SESSION_STORAGE) private storage: StorageService,
     private http: HttpClient, private _api: ApiService, private ValidatorService: ValidatorService, private router: Router,) { }
@@ -41,15 +44,8 @@ export class CreateCompanyComponent implements OnInit {
   ngOnInit(): void {
     this.form_type = this.getFromLocal('Form_type');
     this.company_detail = this.getFromLocal('Company_detail');
-    console.log(this.company_detail)
-    if (this.company_detail != undefined) {
-      this.form_data()
-
-    }
-
     this._api.LiveDoctorList().subscribe(
       (response: any) => {
-         console.log(response);
          for(let a = 0 ; a < response.Data.length ; a ++){
            let da = {
             _id : response.Data[a]._id,
@@ -67,6 +63,9 @@ export class CreateCompanyComponent implements OnInit {
            }
            this.Doctor_List.push(da);
          }
+         if (this.company_detail != undefined) {
+          this.form_data()
+        }
       }
       );
 
@@ -82,10 +81,22 @@ export class CreateCompanyComponent implements OnInit {
     this.consultantdoc_below = this.company_detail.ConsultantDoctorsRange_Below;
     this.prepaid_amount = this.company_detail.Prepaid_Amount;
     this.discount_offered = this.company_detail.DiscountOffered;
-    this.Corporatecode = this.company_detail.Corporatecode;
+    this.Corporatecode_string = this.company_detail.Corporatecode;
     this.Balance_Amount = this.company_detail.Balance_Amount;
     this.Used_Amount = this.company_detail.Used_Amount;
     this.emp_no = this.company_detail.emp_no;
+    this.Doctor_add_details = this.company_detail.doctors_list;
+    this.emp_codes = this.company_detail.emp_codes;
+    let selected_doctor_list = this.company_detail.doctors_list;
+    for(let a = 0 ; a < this.Doctor_List.length ; a ++){
+    for(let b = 0 ; b < selected_doctor_list.length ; b ++){
+      if(this.Doctor_List[a]._id == selected_doctor_list[b]){
+        this.Doctor_List[a].Status = false;
+      }
+    }
+    }
+
+
   }
   _keyPress(event: any) {
     const pattern = /[0-9]/;
@@ -115,27 +126,42 @@ export class CreateCompanyComponent implements OnInit {
 
   add_doctor(item,i){
   this.Doctor_List[i].Status = false;
-   console.log(item,i);
    this.Doctor_add_details.push(item);
-   console.log(this.Doctor_add_details);
   }
 
   delete_doctor(item,i){
+    this.selectallbutton =  true;
     this.Doctor_List[i].Status = true;
-    console.log(item,i);
     for(let a = 0 ; a <  this.Doctor_add_details.length ; a ++){
       if(this.Doctor_add_details[a]==item){
         this.Doctor_add_details.splice(a, 1);
       }
     }
-    console.log(this.Doctor_add_details);
   }
 
+
+selectall(){
+  this.Doctor_add_details = [];
+ this.selectallbutton =  false;
+  for(let a = 0 ; a < this.Doctor_List.length ; a ++){
+    this.Doctor_add_details.push(this.Doctor_List[a]._id);
+    this.Doctor_List[a].Status = false;
+  }
+}
+
+
+deselectall(){
+ this.Doctor_add_details = [];
+ this.selectallbutton =  true;
+ for(let a = 0 ; a < this.Doctor_List.length ; a ++){
+  this.Doctor_List[a].Status = true;
+}
+}
 
   submit() {
     if(this.valitation() == true){
       if (this.consultantdoc_all == 'true') {
-        this.consultantdoc_below = null;
+        this.consultantdoc_below = 0;
       }
       let data = {
         "_id": "",
@@ -149,14 +175,13 @@ export class CreateCompanyComponent implements OnInit {
         "ConsultantDoctorsRange_Below": this.consultantdoc_below,
         "Prepaid_Amount": this.prepaid_amount,
         "Used_Amount": 0,
-        "Balance_Amount": 0,
+        "Balance_Amount": this.prepaid_amount,
         "DiscountOffered": this.discount_offered,
         "emp_no":this.emp_no,
         "doctors_list": this.Doctor_add_details,
+        "emp_codes" : this.emp_codes,
       }
-      console.log(data)
       this._api.createcompany(data).subscribe((res: any) => {
-        console.log(res)
         if (res.Code == 200) {
           alert('Company created successfully')
           this.router.navigateByUrl('/admin_panel/company_list');
@@ -177,7 +202,7 @@ export class CreateCompanyComponent implements OnInit {
 
   edit() {
     if (this.consultantdoc_all == 'true') {
-      this.consultantdoc_below = null;
+      this.consultantdoc_below = 0;
     }
     let data = {
       "_id": this.company_detail._id,
@@ -192,11 +217,11 @@ export class CreateCompanyComponent implements OnInit {
       "Used_Amount": this.company_detail.Used_Amount,
       "Balance_Amount": this.company_detail.Balance_Amount,
       "DiscountOffered": this.discount_offered,
-      "emp_no":this.emp_no
+      "emp_no":this.emp_no,
+      "doctors_list": this.Doctor_add_details,
+      "emp_codes" : this.emp_codes,
     }
-    console.log(data)
     this._api.Editcompany(data).subscribe((res) => {
-      console.log(res)
       this.router.navigateByUrl('admin_panel/company_list')
     });
   }
@@ -221,6 +246,5 @@ export class CreateCompanyComponent implements OnInit {
 
   }
   cj() {
-    console.log(this.consultantdoc_all)
   }
 }

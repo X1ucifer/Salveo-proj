@@ -25,11 +25,11 @@ const routes: Routes = [
         loadChildren: () => import('./homepage/homepage.module').then(m => m.HomepageModule)
       },]
   },
-  {
-    path: 'doctor_form',
-    component: DoctorCreateComponent,
+  // {
+  //   path: 'doctor_form',
+  //   component: DoctorCreateComponent,
 
-  }
+  // }
 ];
 
 @NgModule({

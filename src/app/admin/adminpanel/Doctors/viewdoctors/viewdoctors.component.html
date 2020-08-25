@@ -86,9 +86,9 @@
                             <div class="col-md-9">
                                 <select id="select1" name="select1" class="form-control" [(ngModel)]="Gender" name="Gender">
                                     <option style="display: none;" value=undefined selected disabled>Select</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                    <option value="Others">Others</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="others">Others</option>
                                 </select>
                                 <div *ngIf="Validation == false && Gender == undefined" class="mt-1 error">
                                     <div class="text-danger">Gender is Required.</div>

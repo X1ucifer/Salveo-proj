@@ -25,7 +25,7 @@ export class ListpatientsComponent implements OnInit {
     this._api.PatientList().subscribe(
       (response: any) => {
          console.log(response);
-         this.Patient_list = response.data;
+         this.Patient_list = response.Data;
       }
       );
   }

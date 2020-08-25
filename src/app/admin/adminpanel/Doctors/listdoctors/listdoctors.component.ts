@@ -20,6 +20,8 @@ export class ListdoctorsComponent implements OnInit {
   Live_Doctor_data :  any;
   Live_Doctor_id: string;
 
+  user_list : any;
+
 
   constructor(
     @Inject(SESSION_STORAGE) private storage: StorageService,
@@ -43,14 +45,24 @@ export class ListdoctorsComponent implements OnInit {
     this._api.DoctorList().subscribe(
       (response: any) => {
          this.Doctor_List = response.Data;
+         console.log(this.Doctor_List);
       }
       );
       this._api.LiveDoctorList().subscribe(
         (response: any) => {
 
            this.Live_Doctor_List = response.Data;
+           console.log(this.Live_Doctor_List);
         }
         );
+
+
+        this._api.UserList().subscribe(
+          (response: any) => {
+             console.log(response);
+             this.user_list = response.Data;
+          }
+          );
 
 
 
@@ -84,6 +96,7 @@ export class ListdoctorsComponent implements OnInit {
   }
 
   DeleteDoctor(i){
+    console.log(i);
     this._api.DeleteDoctor(i._id).subscribe(
       (response: any) => {
          for (let a = 0 ; a < this.Live_Doctor_List.length ; a++){
@@ -92,12 +105,25 @@ export class ListdoctorsComponent implements OnInit {
               this._api.LiveDeleteDoctor(this.Live_Doctor_List[a]._id).subscribe(
                 (response: any) => {
                    console.log(response);
-                   alert(response.message);
+                   alert("Deleted From Live Doctor List");
                    this.ngOnInit();
+                   for (let d = 0 ; d < this.user_list.length ; d++){
+                   if(this.user_list[d].Email == i.Email){
+                    this._api.DeleteUser(this.user_list[d]._id).subscribe(
+                      (response: any) => {
+                         console.log(response);
+                         alert("Deleted From App User List");
+                         this.ngOnInit();
+                      }
+                      );
+                   }
+                  }
                    }
                 );
           }
          }
+         alert("Deleted From Doctor List");
+         this.ngOnInit();
          }
       );
   }
@@ -111,7 +137,6 @@ export class ListdoctorsComponent implements OnInit {
 
   this._api.EditDoctor(data).subscribe(
     (response: any) => {
-
       if(response.Code == 300){
         alert("There Was a Problem in register this doctor try it again");
       }else{
@@ -125,12 +150,11 @@ export class ListdoctorsComponent implements OnInit {
 
 
   InsertLiveDoctor(){
-
     let data =
     {
       "Pic" : this.Live_Doctor_data.Pic,
       "Name" : this.Live_Doctor_data.Name,
-      "DOB" : this.datePipe.transform(this.Live_Doctor_data.DOB  ,"yyyy-MM-dd"),
+      "DOB" : this.Live_Doctor_data.DOB,
       "Type":this.Live_Doctor_data.Type,
       "Gender": this.Live_Doctor_data.Gender,
       "Languages" : this.Live_Doctor_data.Languages,
@@ -159,8 +183,8 @@ export class ListdoctorsComponent implements OnInit {
       "Salveo_Price": this.Live_Doctor_data.Salveo_Price,
       "signature" : this.Live_Doctor_data.signature,
       "KMS_registration": this.Live_Doctor_data.KMS_registration,
-      "corporatecode" :"",
-      "Doctor_Range":0
+      "corporatecode" : this.Live_Doctor_data.corporatecode,
+      "Doctor_Range": this.Live_Doctor_data.Doctor_Range,
 
   }
 
@@ -181,12 +205,11 @@ export class ListdoctorsComponent implements OnInit {
   UpdateLiveDoctor(){
     let data =
     {
-      "_id": this.Live_Doctor_id,
       "Pic" : this.Live_Doctor_data.Pic,
       "Name" : this.Live_Doctor_data.Name,
-      "DOB" :this.datePipe.transform(this.Live_Doctor_data.DOB  ,"yyyy-MM-dd"),
-      "Gender": "Male",
-      "Type":this.Live_Doctor_data.Type,
+      "DOB" : this.Live_Doctor_data.DOB,
+      "Gender": this.Live_Doctor_data.Gender,
+      "Type": this.Live_Doctor_data.Type,
       "Languages" : this.Live_Doctor_data.Languages,
       "Email" :this.Live_Doctor_data.Email,
       "Password" : this.Live_Doctor_data.Password,
@@ -195,7 +218,7 @@ export class ListdoctorsComponent implements OnInit {
       "HighestQualifications": this.Live_Doctor_data.HighestQualifications,
       "Specilization": this.Live_Doctor_data.Specilization,
       "Year_of_Passout": this.Live_Doctor_data.Year_of_Passout,
-      "Current_location": "Chennai",
+      "Current_location": this.Live_Doctor_data.Current_location,
       "Experience":this.Live_Doctor_data.Experience,
       "Current_employee_id": "",
       "EmployeeAt":this.Live_Doctor_data.EmployeeAt,
@@ -213,8 +236,8 @@ export class ListdoctorsComponent implements OnInit {
       "Salveo_Price": this.Live_Doctor_data.Salveo_Price,
       "signature" : this.Live_Doctor_data.signature,
       "KMS_registration": this.Live_Doctor_data.KMS_registration,
-      "corporatecode" :"",
-      "Doctor_Range":0
+      "corporatecode" : this.Live_Doctor_data.corporatecode,
+      "Doctor_Range": this.Live_Doctor_data.Doctor_Range,
   }
   console.log(data);
   this._api.EditLiveDoctor(data).subscribe(

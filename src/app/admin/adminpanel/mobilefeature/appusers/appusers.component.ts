@@ -23,7 +23,7 @@ export class AppusersComponent implements OnInit {
     this._api.UserList().subscribe(
       (response: any) => {
          console.log(response);
-         this.Doctor_List = response.data;
+         this.Doctor_List = response.Data;
       }
       );
   }
