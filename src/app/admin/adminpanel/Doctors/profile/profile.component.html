@@ -9,8 +9,10 @@
                 <div class="col-md-9">
                     <h1 style="margin-bottom: 0px;">{{data.Name}}</h1>
                     <p class="title">{{data.Qualifications}}</p>
-                    <p><i class="fa fa-envelope-o" aria-hidden="true"></i> {{data.Email}} - <i class="fa fa-phone" aria-hidden="true"></i> {{data.Phone}}</p>
-                    <p style="font-size:12px;font-weight: 500;"><i class="fa fa-briefcase" aria-hidden="true"></i> {{data.Experience}} </p>
+                    <p><i class="fa fa-envelope-o" aria-hidden="true"></i> {{data.Email}} - <i class="fa fa-phone"
+                            aria-hidden="true"></i> {{data.Phone}}</p>
+                    <p style="font-size:12px;font-weight: 500;"><i class="fa fa-briefcase" aria-hidden="true"></i>
+                        {{data.Experience}} </p>
                 </div>
             </div>
         </div>
@@ -86,15 +88,23 @@
                             </tr>
 
                             <tr>
-                              <th><label for="f-tos">Doctor Brife</label></th>
-                              <td class="desc"> {{data.Special_mention}} </td>
-                          </tr>
+                                <th><label for="f-tos">Doctor Brife</label></th>
+                                <td class="desc"> {{data.Special_mention}} </td>
+                            </tr>
 
 
                             <tr>
-                              <th><label for="f-tos">About Doctor</label></th>
-                              <td class="desc"> {{data.Information}} </td>
-                          </tr>
+                                <th><label for="f-tos">About Doctor</label></th>
+                                <td class="desc"> {{data.Information}} </td>
+                            </tr>
+                            <tr>
+                                <th><label for="f-tos">KMS Registration Number</label></th>
+                                <td class="desc"> {{data.KMS_registration}} </td>
+                            </tr>
+                            <tr>
+                                <th><label for="f-tos">Signature</label></th>
+                                <td class="desc"> <img style="width: 100px;" src="{{data.signature}}" alt=""/> </td>
+                            </tr>
 
 
                         </table>

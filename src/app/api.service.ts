@@ -155,4 +155,8 @@ export class ApiService {
   Editcompany(data) {
     return this.http.post(this.apiUrl + 'company/edit', data);
   }
+  
+  appointment() {
+    return this.http.get<any>(this.apiUrl + 'appointment/getlist');
+  }
 }

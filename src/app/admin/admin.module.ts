@@ -44,6 +44,10 @@ import { CreateCompanyComponent } from './adminpanel/create-company/create-compa
 import { CompanyListComponent } from './adminpanel/company-list/company-list.component';
 import {DialogModule} from 'primeng/dialog';
 import {RadioButtonModule} from 'primeng/radiobutton';
+import {DropdownModule} from 'primeng/dropdown';
+import {ButtonModule} from 'primeng/button';
+import { AppoinmentlistComponent } from './adminpanel/appoinmentlist/appoinmentlist.component';
+
 @NgModule({
   declarations: [AdminHeaderComponent, AdminSidebarComponent, DashboardComponent,
     AccessrollComponent,
@@ -63,6 +67,7 @@ import {RadioButtonModule} from 'primeng/radiobutton';
     ProfileComponent,
     CreateCompanyComponent,
     CompanyListComponent,
+    AppoinmentlistComponent,
   ],
   imports: [
     CommonModule,
@@ -77,7 +82,9 @@ import {RadioButtonModule} from 'primeng/radiobutton';
     FormsModule,
     MatDialogModule,
     DialogModule,
-    RadioButtonModule],
+    RadioButtonModule,
+    DropdownModule,
+    ButtonModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA

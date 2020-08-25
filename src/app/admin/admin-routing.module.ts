@@ -19,6 +19,7 @@ import { LivedoctorsComponent } from './adminpanel/Doctors/livedoctors/livedocto
 import { ProfileComponent } from './adminpanel/Doctors/profile/profile.component';
 import { CreateCompanyComponent } from './adminpanel/create-company/create-company.component';
 import { CompanyListComponent } from './adminpanel/company-list/company-list.component';
+import { AppoinmentlistComponent } from './adminpanel/appoinmentlist/appoinmentlist.component';
 const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'dashboard', component: DashboardComponent },
@@ -105,7 +106,7 @@ const routes: Routes = [
 
   },
   
-
+  { path: 'appointment_list', component: AppoinmentlistComponent },
 ];
 
 @NgModule({

@@ -5,6 +5,24 @@
             <div class="card">
                 <div class="card-header">
                     <i class="fa fa-align-justify"></i> Patient List
+                    <div class="row" style="padding:20px 0px">
+                        <div class="col-lg-3">
+                            <h5>Corporate Code</h5>
+                            <p-dropdown [options]="cities" [(ngModel)]="selectedcorporate" placeholder="Select "
+                                optionLabel="name" [showClear]="true"></p-dropdown>
+                        </div>
+                        <div class="col-lg-3">
+                            <h5>Emp Code</h5>
+                            <p-dropdown [options]="cities" [(ngModel)]="selectedemp" placeholder="Select"
+                                optionLabel="name" [showClear]="true"></p-dropdown>
+                        </div>
+                        <div class="col-lg-3">
+                            <p-button (click)="filter()" label="Filter" style="margin-top: 30px;margin-right: 15px;"></p-button>
+                            <p-button (click)="refresh()" label="Refresh" style="margin-top: 30px;"></p-button>
+                        </div>
+                    </div>
+
+
                 </div>
                 <div class="card-body" style="overflow-x: scroll;">
                     <table class="table table-bordered table-striped table-sm">
@@ -14,6 +32,8 @@
                                 <th>Patient Name</th>
                                 <th>Email ID</th>
                                 <th>Phone Number</th>
+                                <th>Corporate Code</th>
+                                <th>Emp Code</th>
                                 <th>Action</th>
                                 <th>View More</th>
                             </tr>
@@ -26,6 +46,8 @@
                                     <td>{{item.Name}}</td>
                                     <td>{{item.Email}}</td>
                                     <td>{{item.Phone}}</td>
+                                    <td>{{item.CorporateCode}}</td>
+                                    <td>{{item.emp_codes}}</td>
                                     <td>{{item.Password}}</td>
                                     <td>
                                         <button (click)="DeletePatient(item._id)">Delete</button>

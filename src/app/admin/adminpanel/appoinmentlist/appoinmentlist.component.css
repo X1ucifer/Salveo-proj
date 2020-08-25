@@ -1,6 +1,6 @@
 .add-btn {
     border: none;
-    background: #2896bc;
+    background: #333;
     color: #fff;
 }
 
@@ -32,11 +32,9 @@
 .table td {
     vertical-align: middle;
 }
-:host::ng-deep .ui-button-text-only .ui-button-text {
-    color: #fff !important;
-}
-:host::ng-deep .ui-button:enabled:focus {
-    outline: 0 none;
-    outline-offset: 0px;
-    box-shadow: none !important;
+
+.table {
+    width: 1500px !important;
+    max-width: 1500px !important;
+    margin-bottom: 20px;
 }
