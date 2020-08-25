@@ -81,11 +81,12 @@ export class ViewdoctorsComponent implements OnInit {
     console.log(this.Doctor_Detail);
     console.log(this.Doctor_Detail.DOB);
     // console.log(this.datePipe.transform(new Date(this.Doctor_Detail.DOB)));
-
-
+    let myDate = this.Doctor_Detail.DOB.replace(/(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3")
+    let newDate = this.datePipe.transform(myDate, 'yyyy-MM-dd', 'es-ES');
+    console.log(newDate);
     this.Pic = this.Doctor_Detail.Pic;
     this.DrName = this.Doctor_Detail.Name;
-    this.DOB =  this.Doctor_Detail.DOB;
+    this.DOB =  this.datePipe.transform(newDate ,"yyyy-MM-dd");
     this.LanguagesList = this.Doctor_Detail.Languages;
     this.Email_id = this.Doctor_Detail.Email;
     this.Password = this.Doctor_Detail.Password;
@@ -280,7 +281,7 @@ export class ViewdoctorsComponent implements OnInit {
           "_id": this.Doctor_Detail._id,
           "Pic" : this.Pic,
           "Name" : this.DrName,
-          "DOB" : this.DOB,
+          "DOB" : this.datePipe.transform(this.DOB  ,"dd-MM-yyyy"),
           "Type": 1,
           "Languages" : this.LanguagesList,
           "Email" : this.Email_id,
@@ -353,5 +354,8 @@ export class ViewdoctorsComponent implements OnInit {
     else {
       this.Validation = true;
     }
+  }
+  date(){
+    console.log(this.DOB)
   }
 }

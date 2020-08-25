@@ -99,7 +99,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label" for="text-input">Date of birth</label>
                             <div class="col-md-9">
-                                <input type="Date" id="text-input" [(ngModel)]="DOB" name="DOB" [max]="maxDate | date:'yyyy-MM-dd'" class="form-control" placeholder="Text">
+                                <input type="Date" id="text-input" [(ngModel)]="DOB" name="DOB" (ngModelChange)="date()" [max]="maxDate | date:'dd-MM-yyyy'" class="form-control" placeholder="Text">
                                 <!-- <span class="help-block">This is a help text</span> -->
                             </div>
                         </div>

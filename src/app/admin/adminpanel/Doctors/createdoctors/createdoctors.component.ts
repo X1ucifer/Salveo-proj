@@ -242,7 +242,7 @@ submit()
           "_id": response.Data._id,
          "Pic" : this.Pic,
          "Name" : this.DrName,
-         "DOB" : this.datePipe.transform(this.DOB  ,"yyyy-MM-dd"),
+         "DOB" : this.datePipe.transform(this.DOB  ,"dd-MM-yyyy"),
          "Gender": this.Gender,
          "Type": 1,
          "Languages" : this.LanguagesList,
