@@ -94,7 +94,7 @@ export class ViewdoctorsComponent implements OnInit {
     this.Qualifications = this.Doctor_Detail.Qualifications;
     this.Institution = this.Doctor_Detail.HighestQualifications;
     this.SpecialisationList = this.Doctor_Detail.Specilization;
-    this.YOP = +this.Doctor_Detail.Year_of_Passout;
+    this.YOP = this.Doctor_Detail.Year_of_Passout;
     this.OverallExp = this.Doctor_Detail.Experience;
     this.current_engaged = this.Doctor_Detail.OnlineConsultant;
     this.Additional_info = this.Doctor_Detail.Information;
@@ -103,16 +103,13 @@ export class ViewdoctorsComponent implements OnInit {
     this.Special = this.Doctor_Detail.Special_mention;
     this.Charge_Per_15min = this.Doctor_Detail.Charge_Per_15min;
     this.File_list = this.Doctor_Detail.File_list;
-    this.Charge_Salveo = this.Doctor_Detail.Salveo_Price;
     this.verification = this.Doctor_Detail.Verification_Status;
     this.Gender= this.Doctor_Detail.Gender;
     this.Current_location = this.Doctor_Detail.Current_location;
     this.Current_employe_at = this.Doctor_Detail.EmployeeAt;
     this.hours_per_day = this.Doctor_Detail.AvailableHours;
 
-    this.Charge_Salveo_total = this.Charge_Salveo ;
-
-
+    this.Charge_Salveo_total = this.Doctor_Detail.Salveo_Price;
     console.log(this.Charge_Salveo,this.Charge_Salveo_total,this.Charge_Per_15min);
 
     this.Charge_Salveo = +this.Charge_Salveo_total - +this.Charge_Per_15min;
@@ -290,7 +287,7 @@ export class ViewdoctorsComponent implements OnInit {
           "Qualifications": this.Qualifications,
           "HighestQualifications": this.Institution,
           "Specilization": this.SpecialisationList,
-          "Year_of_Passout": +this.YOP,
+          "Year_of_Passout": this.YOP,
           "Current_location": this.Current_location,
           "Experience": this.OverallExp,
           "Current_employee_id": "",

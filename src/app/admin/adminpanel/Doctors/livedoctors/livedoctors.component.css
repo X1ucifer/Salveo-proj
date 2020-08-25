@@ -1,6 +1,6 @@
 .add-btn {
     border: none;
-    background: #2896bc;
+    background: #333;
     color: #fff;
 }
 
@@ -31,4 +31,10 @@
 
 .table td {
     vertical-align: middle;
+}
+
+.table {
+    width: 1500px !important;
+    max-width: 1500px !important;
+    margin-bottom: 20px;
 }

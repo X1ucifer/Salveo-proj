@@ -59,6 +59,18 @@ export class LivedoctorsComponent implements OnInit {
    getFromLocal(key): any {
     return this.storage.get(key);
    }
+   ViewProfile(maindata){
 
+    this.saveInLocal('Doctor_Details', maindata);
+
+    this.router.navigateByUrl('admin_panel/profile_view')
+    // const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+    //   width: '500px',
+    //   data: maindata
+    // });
+
+    // dialogRef.afterClosed().subscribe(result => {
+    // });
+   }
 }
 
