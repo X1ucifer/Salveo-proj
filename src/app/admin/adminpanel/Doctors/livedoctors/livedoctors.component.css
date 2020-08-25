@@ -38,3 +38,6 @@
     max-width: 1500px !important;
     margin-bottom: 20px;
 }
+:host::ng-deep .ui-button-text-only .ui-button-text {
+    color: #fff !important;
+}

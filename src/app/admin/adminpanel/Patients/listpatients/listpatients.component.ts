@@ -13,16 +13,10 @@ export class ListpatientsComponent implements OnInit {
 
 
   Patient_list: any;
-  cities = [
-    { name: 'New York', code: 'NY' },
-    { name: 'Rome', code: 'RM' },
-    { name: 'London', code: 'LDN' },
-    { name: 'Istanbul', code: 'IST' },
-    { name: 'Paris', code: 'PRS' }
-  ];
   selectedcorporate: any;
   selectedemp: any;
   list: any;
+  corporate:any=[];
   constructor(
     @Inject(SESSION_STORAGE) private storage: StorageService,
     private router: Router,
@@ -36,6 +30,16 @@ export class ListpatientsComponent implements OnInit {
         console.log(response);
         this.list = response.Data;
         this.Patient_list = response.Data;
+      }
+    );
+    this._api.companyget().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.corporate=[];
+        for(let i=0; i< response.Data.length; i++ ){
+          this.corporate.push( { name: response.Data[i].Corporatecode, code: response.Data[i].Corporatecode },)
+        }
+        console.log(this.corporate);
       }
     );
   }
@@ -72,7 +76,7 @@ export class ListpatientsComponent implements OnInit {
     if (this.selectedcorporate != undefined) {
       this.Patient_list = this.Patient_list.filter((x: any) => x.CorporateCode == this.selectedcorporate)
     }
-    if (this.selectedemp != undefined) {
+    if (this.selectedemp != undefined && this.selectedemp != '') {
       this.Patient_list = this.Patient_list.filter((x: any) => x.emp_codes == this.selectedemp)
     }
   }

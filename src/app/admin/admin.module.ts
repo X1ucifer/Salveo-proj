@@ -47,6 +47,8 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 import {DropdownModule} from 'primeng/dropdown';
 import {ButtonModule} from 'primeng/button';
 import { AppoinmentlistComponent } from './adminpanel/appoinmentlist/appoinmentlist.component';
+import {InputTextModule} from 'primeng/inputtext';
+import {CalendarModule} from 'primeng/calendar';
 
 @NgModule({
   declarations: [AdminHeaderComponent, AdminSidebarComponent, DashboardComponent,
@@ -84,7 +86,9 @@ import { AppoinmentlistComponent } from './adminpanel/appoinmentlist/appoinmentl
     DialogModule,
     RadioButtonModule,
     DropdownModule,
-    ButtonModule],
+    ButtonModule,
+    InputTextModule,
+    CalendarModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA

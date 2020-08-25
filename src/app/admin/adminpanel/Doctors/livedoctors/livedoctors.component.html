@@ -29,8 +29,8 @@
                                     <th>Live Status</th>
                                     <th>Verification Status</th>
                                     <th>Total cost</th>
-                                    <th style="width: 90px;">Action</th>
-                                    <!-- <th>Approval</th> -->
+                                    <th style="width: 100px;">Action</th>
+                                    <th>Unlive</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -58,7 +58,10 @@
                                         <td>{{item.Verification_Status}}</td>
                                         <td>{{item.Salveo_Price}}</td>
                                         <td style="text-align: center;">
-                                           <i (click)="ViewProfile(item)" style="font-size: 15px;padding: 2px; color: #35a625;margin-right: 10px;" class="fa  fa-user-md" aria-hidden="true"></i>
+                                            <i (click)="ViewProfile(item)" style="font-size: 15px;padding: 2px; color: #35a625;margin-right: 10px;" class="fa  fa-user-md" aria-hidden="true"></i>
+                                        </td>
+                                        <td>
+                                            <button (click)="unlive(item)" pButton pRipple type="button" label="Unlive" class="p-button-warning"></button>
                                         </td>
                                     </tr>
                                 </ng-container>

@@ -13,6 +13,8 @@ import { Location } from '@angular/common';
 })
 export class ProfileComponent implements OnInit {
 data:any;
+calendar:any=[];
+displayBasic:boolean= false;
   constructor(
     @Inject(SESSION_STORAGE) private storage: StorageService,
     private router: Router,
@@ -33,12 +35,22 @@ data:any;
     return this.storage.get(key);
    }
   ngOnInit(): void {
-
+    let email =
+    {"Doctor_email_id":this.data.Email}
+    this._api.doctor_calendar(email).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.calendar = response.Data
+      }
+    );
   }
 
 
 
 back(){
   this.location.back();
+}
+doc_cal(){
+  this.displayBasic = true;
 }
 }

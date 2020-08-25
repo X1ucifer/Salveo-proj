@@ -162,4 +162,16 @@ export class ApiService {
   appointment() {
     return this.http.get<any>(this.apiUrl + 'appointment/getlist');
   }
+  companyget() {
+    return this.http.get<any>(this.apiUrl + 'company/getlist');
+  }
+  forunlive1(data) {
+    return this.http.post(this.apiUrl + 'livedoctors/edits', data);
+  }
+  forunlive2(data) {
+    return this.http.post(this.apiUrl + 'livedoctors/liveedits', data);
+  }
+  doctor_calendar(data) {
+    return this.http.post(this.apiUrl + 'doctortime/doctor_ava_all', data);
+  }
 }

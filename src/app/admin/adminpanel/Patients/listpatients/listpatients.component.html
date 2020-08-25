@@ -8,17 +8,20 @@
                     <div class="row" style="padding:20px 0px">
                         <div class="col-lg-3">
                             <h5>Corporate Code</h5>
-                            <p-dropdown [options]="cities" [(ngModel)]="selectedcorporate" placeholder="Select "
+                            <p-dropdown [options]="corporate" [(ngModel)]="selectedcorporate" placeholder="Select "
                                 optionLabel="name" [showClear]="true"></p-dropdown>
                         </div>
                         <div class="col-lg-3">
                             <h5>Emp Code</h5>
-                            <p-dropdown [options]="cities" [(ngModel)]="selectedemp" placeholder="Select"
-                                optionLabel="name" [showClear]="true"></p-dropdown>
+                            <input type="text" pInputText [(ngModel)]="selectedemp"> 
                         </div>
                         <div class="col-lg-3">
-                            <p-button (click)="filter()" label="Filter" style="margin-top: 30px;margin-right: 15px;"></p-button>
-                            <p-button (click)="refresh()" label="Refresh" style="margin-top: 30px;"></p-button>
+                            <div style="margin-top: 30px;">
+                                <p-button (click)="filter()" label="Filter" style="margin-right: 15px;"></p-button>
+                                
+                                <p-button (click)="refresh()" label="Refresh" ></p-button>
+                            </div>
+                            
                         </div>
                     </div>
 

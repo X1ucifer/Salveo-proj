@@ -13,6 +13,10 @@
                             aria-hidden="true"></i> {{data.Phone}}</p>
                     <p style="font-size:12px;font-weight: 500;"><i class="fa fa-briefcase" aria-hidden="true"></i>
                         {{data.Experience}} </p>
+                    <div class="p-field p-col-12 p-md-4">
+                        <label (click)="doc_cal()">Doctor Calendar <i class="fa fa-calendar"
+                                aria-hidden="true"></i></label>
+                    </div>
                 </div>
             </div>
         </div>
@@ -103,7 +107,7 @@
                             </tr>
                             <tr>
                                 <th><label for="f-tos">Signature</label></th>
-                                <td class="desc"> <img style="width: 100px;" src="{{data.signature}}" alt=""/> </td>
+                                <td class="desc"> <img style="width: 100px;" src="{{data.signature}}" alt="" /> </td>
                             </tr>
 
 
@@ -115,3 +119,33 @@
         </div>
     </div>
 </section>
+<p-dialog header="Available Date" [(visible)]="displayBasic" [style]="{width: '50vw'}" [baseZIndex]="10000">
+<ng-container *ngIf="calendar.length == 0">
+<h3 style="text-align:center">Data not found</h3>
+</ng-container>
+<ng-container *ngIf="calendar.length > 0">
+    <table class="table table-bordered table-striped table-sm">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let item of calendar; let i = index;">
+                <tr>
+                    <td>{{i+1}}</td>
+                    <td>{{item.Doctor_ava_Date}}</td>
+                    <td>
+                        <ng-container *ngFor="let ite of item.Time">
+                            <span>{{ite.Total_time_slot}}</span>
+                        </ng-container>
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</ng-container>
+    
+</p-dialog>
