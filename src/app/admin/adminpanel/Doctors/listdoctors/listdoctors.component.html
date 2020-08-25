@@ -28,6 +28,7 @@
                                     <th>Live Status</th>
                                     <th>Verification Status</th>
                                     <th>Total cost</th>
+                                    <th>Reg in</th>
                                     <th style="width: 90px;">Action</th>
                                     <th>Approval</th>
                                 </tr>
@@ -56,6 +57,7 @@
                                         <td>{{item.Live_Status}}</td>
                                         <td>{{item.Verification_Status}}</td>
                                         <td>{{item.Salveo_Price}}</td>
+                                        <td>{{item.registeredin}}</td>
                                         <td style="text-align: center;">
                                             <i (click)="DeleteDoctor(item)" style="font-size: 15px;padding: 2px;margin-right: 10px;color:#007ad9" class="fa fa-trash" aria-hidden="true"></i>
                                             <i (click)="ViewDoctors(item)" style="font-size: 15px;padding: 2px; color: #333;margin-right: 10px" class="fa fa-pencil-square-o" aria-hidden="true"></i>

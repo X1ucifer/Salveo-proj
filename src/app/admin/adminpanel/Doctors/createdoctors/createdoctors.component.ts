@@ -12,6 +12,9 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./createdoctors.component.css']
 })
 export class CreatedoctorsComponent  {
+  Doctor_title = "Dr";
+  KMS_registration = "";
+  Doctor_title_list = [];
   Pic:any = "";
   Available_type:any = "";
   Charge_Per_15min:any;
@@ -59,6 +62,11 @@ export class CreatedoctorsComponent  {
       console.log(res)
       this.language = res.Data;
     })
+    this._api.doctor_title_lists().subscribe((res)=>{
+      console.log(res)
+      this.Doctor_title_list = res.Data;
+    })
+
     this.Pic = "http://54.214.141.11:3000/uploads/images.png";
     for(let a=1950; a <= 2020; a++){
       this.year.push(a)
@@ -218,7 +226,6 @@ submit()
       this.File_name,
       this.File_list,
       )
-
       let data =
         {
           "Name" : this.DrName,
@@ -236,46 +243,48 @@ submit()
           if(response.Code == 300){
             alert(response.Message);
           }else{
-
             let data =
         {
+          "AvailableHours": +this.hours_per_day,
+          "Available_type": this.Available_type,
+          "Charge_Per_15min": +this.Charge_Per_15min,
+          "Current_employee_id": "",
+          "Current_location": this.Current_location,
+          "DOB" : ""+this.datePipe.transform(this.DOB  ,"dd-MM-yyyy"),
+          "Doctor_Range" : 0,
+          "Doctor_title" : this.Doctor_title,
+          "Email" : this.Email_id,
+          "EmployeeAt":this.Current_employe_at,
+          "Experience": +this.OverallExp,
+          "File_list": this.File_list,
+          "Gender": this.Gender,
+          "HighestQualifications": this.Institution,
+          "Information": this.Additional_info,
+          "KMS_registration": this.KMS_registration,
+          "Languages" : this.LanguagesList,
+          "Live_Status": "not live",
+          "Name" : this.DrName,
+          "Notification_Token" : "",
+          "OnlineConsultant": +this.current_engaged,
+          "Password" : this.Password,
+          "Phone": this.Phone_number,
+          "Pic" : this.Pic,
+          "Qualifications": this.Qualifications,
+          "Salveo_Price" : +this.Charge_Salveo,
+          "Service": this.Service,
+          "Special_mention": this.Special,
+          "Specilization": this.SpecialisationList,
+          "Type": 1,
+          "Updated_At": ""+new Date(),
+          "Verification_Status": "not verified",
+          "Year_of_Passout": +this.YOP,
+          "corporatecode" : "",
+          "last_login_time": ""+new Date(),
+          "login_type" :"",
+          "registeredin": "Admin",
+          "signature":  "",
+          "Profile_update_sts" :"",
           "_id": response.Data._id,
-         "Pic" : this.Pic,
-         "Name" : this.DrName,
-         "DOB" : this.datePipe.transform(this.DOB  ,"dd-MM-yyyy"),
-         "Gender": this.Gender,
-         "Type": 1,
-         "Languages" : this.LanguagesList,
-         "Email" : this.Email_id,
-         "Password" : this.Password,
-         "Phone": this.Phone_number,
-         "Qualifications": this.Qualifications,
-         "HighestQualifications": this.Institution,
-         "Specilization": this.SpecialisationList,
-         "Year_of_Passout": +this.YOP,
-         "Experience": this.OverallExp,
-         "EmployeeAt":this.Current_employe_at,
-         "Current_employee_id": "",
-         "AvailableHours": this.hours_per_day,
-         "OnlineConsultant":this.current_engaged,
-         "Information": this.Additional_info,
-         "login_type" :"",
-         "Updated_At": ""+new Date(),
-         "last_login_time": ""+new Date(),
-         "Available_type": this.Available_type,
-         "Service": this.Service,
-         "Special_mention": this.Special,
-         "Charge_Per_15min": this.Charge_Per_15min,
-         "File_list": this.File_list,
-         "signature":  "",
-         "Salveo_Price" : +this.Charge_Salveo,
-         "Verification_Status": "not verified",
-         "Live_Status": "not live",
-         "Notification_Token" : "",
-         "corporatecode" : "",
-         "KMS_registration": "",
-         "Doctor_Range" : "",
-         "Profile_update_sts" :"",
       }
       console.log(data);
       this._api.CreateDoctor1(data).subscribe(

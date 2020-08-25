@@ -145,6 +145,9 @@ export class ApiService {
   languageList() {
     return this.http.get<any>(this.apiUrl + 'languages/getlist');
   }
+  doctor_title_lists(){
+    return this.http.get<any>(this.apiUrl + 'doctor/getdoclist_title');
+  }
   createcompany(data) {
     return this.http.post(this.apiUrl + 'company/create', data);
   }
@@ -158,7 +161,7 @@ export class ApiService {
   Editcompany(data) {
     return this.http.post(this.apiUrl + 'company/edit', data);
   }
-  
+
   appointment() {
     return this.http.get<any>(this.apiUrl + 'appointment/getlist');
   }

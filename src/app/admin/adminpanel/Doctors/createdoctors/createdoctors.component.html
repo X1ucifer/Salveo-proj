@@ -21,6 +21,19 @@
 
                         </div>
 
+                        <div class="form-group row">
+                          <label class="col-md-3 col-form-label" for="text-input">Doctor Title</label>
+                          <div class="col-md-9">
+                              <select style="width: 200px;" class="form-control" [(ngModel)]="Doctor_title" name="Doctor_title">
+                                  <option style="display: none;" value=undefined selected disabled>Select</option>
+                                  <ng-container *ngFor="let y of Doctor_title_list">
+                                      <option value="{{y.title}}">{{y.title}}</option>
+                                  </ng-container>
+                              </select>
+                              <!-- <input type="text" id="text-input" [(ngModel)]="YOP" maxlength="4" (keypress)=_keyPress($event) name="YOP" class="form-control" placeholder="Year of Passing Of Highest Qualification"> -->
+                              <!-- <span class="help-block">This is a help text</span> -->
+                          </div>
+                      </div>
 
 
                         <div class="form-group row">
@@ -237,10 +250,19 @@
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label" for="text-input">Overall Experience</label>
                             <div class="col-md-9">
-                                <input type="text" id="text-input" [(ngModel)]="OverallExp" name="OverallExp" class="form-control" placeholder="Overall Experience">
+                                <input type="number" id="text-input" [(ngModel)]="OverallExp" name="OverallExp" class="form-control" placeholder="Overall Experience">
                                 <!-- <span class="help-block">This is a help text</span> -->
                             </div>
                         </div>
+
+
+                        <div class="form-group row">
+                          <label class="col-md-3 col-form-label" for="text-input">Registration No</label>
+                          <div class="col-md-9">
+                              <input type="text" id="text-input" [(ngModel)]="KMS_registration" name="KMS_registration" class="form-control" placeholder="Registration No">
+                              <!-- <span class="help-block">This is a help text</span> -->
+                          </div>
+                      </div>
 
 
                         <div class="form-group row">
@@ -276,7 +298,7 @@
                                 online
                                 consultation</label>
                             <div class="col-md-9">
-                                <input type="text" id="text-input" (keypress)=_keyPress($event) [(ngModel)]="hours_per_day" name="hours_per_day" class="form-control" placeholder="Hours per day available for salveo online consultation">
+                                <input type="number" id="text-input" (keypress)=_keyPress($event) [(ngModel)]="hours_per_day" name="hours_per_day" class="form-control" placeholder="Hours per day available for salveo online consultation">
                                 <!-- <span class="help-block">This is a help text</span> -->
                             </div>
                         </div>
@@ -322,7 +344,7 @@
                                     class="fa fa-asterisk" style="color: #f72a2a;font-size: 10px;"
                                     aria-hidden="true"></i></label>
                             <div class="col-md-9">
-                                <input type="text" (keypress)=_keyPress($event) [(ngModel)]="Charge_Per_15min" (ngModelChange)="ch()" name="Charge_Per_15min" class="form-control" placeholder="Charge Per Appointment">
+                                <input type="number" (keypress)=_keyPress($event) [(ngModel)]="Charge_Per_15min" (ngModelChange)="ch()" name="Charge_Per_15min" class="form-control" placeholder="Charge Per Appointment">
                                 <!-- <span class="help-block">This is a help text</span> -->
                                 <div *ngIf="Validation == false && Charge_Per_15min == undefined" class="mt-1 error">
                                     <div class="text-danger">Charge Per Appointment is Required.</div>
@@ -334,7 +356,7 @@
                                   class="fa fa-asterisk" style="color: #f72a2a;font-size: 10px;"
                                   aria-hidden="true"></i></label>
                           <div class="col-md-9">
-                              <input type="text" (keypress)=_keyPress($event) (input)="onSearchChange($event.target.value)" [(ngModel)]="Charge_Salveo" name="Charge_Salveo" id="text-input" class="form-control" placeholder="Salveo Charges">
+                              <input type="number" (keypress)=_keyPress($event) (input)="onSearchChange($event.target.value)" [(ngModel)]="Charge_Salveo" name="Charge_Salveo" id="text-input" class="form-control" placeholder="Salveo Charges">
                               <!-- <span class="help-block">This is a help text</span> -->
                               <div *ngIf="Validation == false && Charge_Salveo == undefined" class="mt-1 error">
                                   <div class="text-danger">Salveo Charges is Required.</div>
