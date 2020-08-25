@@ -252,7 +252,7 @@ submit()
          "Qualifications": this.Qualifications,
          "HighestQualifications": this.Institution,
          "Specilization": this.SpecialisationList,
-         "Year_of_Passout": this.YOP,
+         "Year_of_Passout": +this.YOP,
          "Experience": this.OverallExp,
          "EmployeeAt":this.Current_employe_at,
          "Current_employee_id": "",

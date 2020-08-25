@@ -93,7 +93,7 @@ export class ViewdoctorsComponent implements OnInit {
     this.Qualifications = this.Doctor_Detail.Qualifications;
     this.Institution = this.Doctor_Detail.HighestQualifications;
     this.SpecialisationList = this.Doctor_Detail.Specilization;
-    this.YOP = this.Doctor_Detail.Year_of_Passout;
+    this.YOP = +this.Doctor_Detail.Year_of_Passout;
     this.OverallExp = this.Doctor_Detail.Experience;
     this.current_engaged = this.Doctor_Detail.OnlineConsultant;
     this.Additional_info = this.Doctor_Detail.Information;
@@ -289,7 +289,7 @@ export class ViewdoctorsComponent implements OnInit {
           "Qualifications": this.Qualifications,
           "HighestQualifications": this.Institution,
           "Specilization": this.SpecialisationList,
-          "Year_of_Passout": this.YOP,
+          "Year_of_Passout": +this.YOP,
           "Current_location": this.Current_location,
           "Experience": this.OverallExp,
           "Current_employee_id": "",
