@@ -152,6 +152,7 @@ export class ListdoctorsComponent implements OnInit {
   InsertLiveDoctor(){
     let data =
     {
+      "Doctor_title" :  this.Live_Doctor_data.Doctor_title,
       "Pic" : this.Live_Doctor_data.Pic,
       "Name" : this.Live_Doctor_data.Name,
       "DOB" : this.Live_Doctor_data.DOB,
@@ -179,7 +180,7 @@ export class ListdoctorsComponent implements OnInit {
       "Special_mention": this.Live_Doctor_data.Special_mention,
       "Charge_Per_15min": this.Live_Doctor_data.Charge_Per_15min,
       "Live_Status": 'Live',
-      "Verification_Status": this.Live_Doctor_data.Verification_Status,
+      "Verification_Status": "Verified",
       "Salveo_Price": this.Live_Doctor_data.Salveo_Price,
       "signature" : this.Live_Doctor_data.signature,
       "KMS_registration": this.Live_Doctor_data.KMS_registration,
@@ -188,13 +189,14 @@ export class ListdoctorsComponent implements OnInit {
 
   }
 
+  console.log(data);
   this._api.CreateLiveDoctor(data).subscribe(
     (response: any) => {
       if(response.Code == 300){
         alert("There Was a Problem in register this doctor try it again");
       }else{
-        alert('Doctor Moved to Live');
-        this.ngOnInit();
+        // alert('Doctor Moved to Live');
+       this.UpdateLiveDoctor();
       }
     }
   );
@@ -205,6 +207,7 @@ export class ListdoctorsComponent implements OnInit {
   UpdateLiveDoctor(){
     let data =
     {
+      "Doctor_title" :  this.Live_Doctor_data.Doctor_title,
       "Pic" : this.Live_Doctor_data.Pic,
       "Name" : this.Live_Doctor_data.Name,
       "DOB" : this.Live_Doctor_data.DOB,
@@ -232,7 +235,7 @@ export class ListdoctorsComponent implements OnInit {
       "Special_mention": this.Live_Doctor_data.Special_mention,
       "Charge_Per_15min": this.Live_Doctor_data.Charge_Per_15min,
       "Live_Status": 'Live',
-      "Verification_Status": this.Live_Doctor_data.Verification_Status,
+      "Verification_Status": "Verified",
       "Salveo_Price": this.Live_Doctor_data.Salveo_Price,
       "signature" : this.Live_Doctor_data.signature,
       "KMS_registration": this.Live_Doctor_data.KMS_registration,
@@ -245,7 +248,7 @@ export class ListdoctorsComponent implements OnInit {
       if(response.Code == 300){
         alert("There Was a Problem in register this doctor try it again");
       }else{
-        console.log(response.data);
+        console.log(response);
         alert('Doctor Made Live!');
         this.ngOnInit();
       }
