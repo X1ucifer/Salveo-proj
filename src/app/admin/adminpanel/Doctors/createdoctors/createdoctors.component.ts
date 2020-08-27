@@ -270,7 +270,7 @@ submit()
           "Phone": this.Phone_number,
           "Pic" : this.Pic,
           "Qualifications": this.Qualifications,
-          "Salveo_Price" : +this.Charge_Salveo,
+          "Salveo_Price" : +this.Charge_Salveo_total,
           "Service": this.Service,
           "Special_mention": this.Special,
           "Specilization": this.SpecialisationList,
