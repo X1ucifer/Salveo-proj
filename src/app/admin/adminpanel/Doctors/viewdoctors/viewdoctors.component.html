@@ -21,6 +21,20 @@
 
                         </div>
 
+                        <div class="form-group row">
+                          <label class="col-md-3 col-form-label" for="text-input">Doctor Title</label>
+                          <div class="col-md-9">
+                              <select style="width: 200px;" class="form-control" [(ngModel)]="Doctor_title" name="Doctor_title">
+                                  <option style="display: none;" value=undefined selected disabled>Select</option>
+                                  <ng-container *ngFor="let y of Doctor_title_list">
+                                      <option value="{{y.title}}">{{y.title}}</option>
+                                  </ng-container>
+                              </select>
+                              <!-- <input type="text" id="text-input" [(ngModel)]="YOP" maxlength="4" (keypress)=_keyPress($event) name="YOP" class="form-control" placeholder="Year of Passing Of Highest Qualification"> -->
+                              <!-- <span class="help-block">This is a help text</span> -->
+                          </div>
+                      </div>
+
 
 
                         <div class="form-group row">
@@ -239,6 +253,15 @@
                                 <!-- <span class="help-block">This is a help text</span> -->
                             </div>
                         </div>
+
+
+                        <div class="form-group row">
+                          <label class="col-md-3 col-form-label" for="text-input">Registration No</label>
+                          <div class="col-md-9">
+                              <input type="text" id="text-input" [(ngModel)]="KMS_registration" name="KMS_registration" class="form-control" placeholder="Registration No">
+                              <!-- <span class="help-block">This is a help text</span> -->
+                          </div>
+                      </div>
 
 
                         <div class="form-group row">

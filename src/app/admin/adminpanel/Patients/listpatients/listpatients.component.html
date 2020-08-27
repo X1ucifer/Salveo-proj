@@ -13,15 +13,15 @@
                         </div>
                         <div class="col-lg-3">
                             <h5>Emp Code</h5>
-                            <input type="text" pInputText [(ngModel)]="selectedemp"> 
+                            <input type="text" pInputText [(ngModel)]="selectedemp">
                         </div>
                         <div class="col-lg-3">
                             <div style="margin-top: 30px;">
                                 <p-button (click)="filter()" label="Filter" style="margin-right: 15px;"></p-button>
-                                
+
                                 <p-button (click)="refresh()" label="Refresh" ></p-button>
                             </div>
-                            
+
                         </div>
                     </div>
 
@@ -35,9 +35,9 @@
                                 <th>Patient Name</th>
                                 <th>Email ID</th>
                                 <th>Phone Number</th>
+                                <th>Password</th>
                                 <th>Corporate Code</th>
                                 <th>Emp Code</th>
-                                <th>Action</th>
                                 <th>View More</th>
                             </tr>
                         </thead>
@@ -49,9 +49,9 @@
                                     <td>{{item.Name}}</td>
                                     <td>{{item.Email}}</td>
                                     <td>{{item.Phone}}</td>
+                                    <td>{{item.Password}}</td>
                                     <td>{{item.CorporateCode}}</td>
                                     <td>{{item.emp_codes}}</td>
-                                    <td>{{item.Password}}</td>
                                     <td>
                                         <button (click)="DeletePatient(item._id)">Delete</button>
                                         <button (click)="ViewPatient(item)">View</button>
