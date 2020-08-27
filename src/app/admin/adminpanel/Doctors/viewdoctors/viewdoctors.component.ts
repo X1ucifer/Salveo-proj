@@ -16,6 +16,8 @@ import { FormControl, FormGroupDirective, NgForm, Validators, FormGroup } from '
 })
 export class ViewdoctorsComponent implements OnInit {
   Pic: any;
+  Doctor_title = "";
+  KMS_registration = "";
   Available_type: any;
   Charge_Per_15min: any;
   Service: any;
@@ -55,6 +57,7 @@ export class ViewdoctorsComponent implements OnInit {
   signature:any;
   year:any[]=[];
   Charge_Salveo_total : any = 0;
+  Doctor_title_list : any;
   constructor(
     @Inject(SESSION_STORAGE) private storage: StorageService,
     private router: Router,
@@ -73,6 +76,10 @@ export class ViewdoctorsComponent implements OnInit {
       console.log(res)
       this.specialization = res.Data;
     })
+    this._api.doctor_title_lists().subscribe((res)=>{
+      console.log(res)
+      this.Doctor_title_list = res.Data;
+    })
     this._api.languageList().subscribe((res) => {
       console.log(res)
       this.language = res.Data;
@@ -85,6 +92,7 @@ export class ViewdoctorsComponent implements OnInit {
     let newDate = this.datePipe.transform(myDate, 'yyyy-MM-dd', 'es-ES');
     console.log(newDate);
     this.Pic = this.Doctor_Detail.Pic;
+    this.Doctor_title = this.Doctor_Detail.Doctor_title;
     this.DrName = this.Doctor_Detail.Name;
     this.DOB =  this.datePipe.transform(newDate ,"yyyy-MM-dd");
     this.LanguagesList = this.Doctor_Detail.Languages;
@@ -108,6 +116,7 @@ export class ViewdoctorsComponent implements OnInit {
     this.Current_location = this.Doctor_Detail.Current_location;
     this.Current_employe_at = this.Doctor_Detail.EmployeeAt;
     this.hours_per_day = this.Doctor_Detail.AvailableHours;
+    this.KMS_registration =  this.Doctor_Detail.KMS_registration;
 
     this.Charge_Salveo_total = this.Doctor_Detail.Salveo_Price;
     console.log(this.Charge_Salveo,this.Charge_Salveo_total,this.Charge_Per_15min);
@@ -275,38 +284,46 @@ export class ViewdoctorsComponent implements OnInit {
 
         let data =
         {
-          "_id": this.Doctor_Detail._id,
-          "Pic" : this.Pic,
-          "Name" : this.DrName,
+          "AvailableHours": +this.hours_per_day,
+          "Available_type": this.Available_type,
+          "Charge_Per_15min": +this.Charge_Per_15min,
+          "Current_employee_id": "",
+          "Current_location": this.Current_location,
           "DOB" : this.datePipe.transform(this.DOB  ,"dd-MM-yyyy"),
-          "Type": 1,
-          "Languages" : this.LanguagesList,
+          "Doctor_title" : this.Doctor_title,
+          "Doctor_Range" : 0,
           "Email" : this.Email_id,
+          "EmployeeAt":this.Current_employe_at,
+          "Experience": +this.OverallExp,
+          "File_list": this.File_list,
+          "Gender": this.Gender,
+          "HighestQualifications": this.Institution,
+          "Information": this.Additional_info,
+          "KMS_registration": this.KMS_registration,
+          "Languages" : this.LanguagesList,
+          "Live_Status": "Last Update Not Live",
+          "Name" : this.DrName,
+          "Notification_Token" : "",
+          "OnlineConsultant": +this.current_engaged,
           "Password" : this.Password,
           "Phone": this.Phone_number,
+          "Pic" : this.Pic,
           "Qualifications": this.Qualifications,
-          "HighestQualifications": this.Institution,
-          "Specilization": this.SpecialisationList,
-          "Year_of_Passout": this.YOP,
-          "Current_location": this.Current_location,
-          "Experience": this.OverallExp,
-          "Current_employee_id": "",
-          "EmployeeAt":this.Current_employe_at,
-          "AvailableHours": this.hours_per_day,
-          "OnlineConsultant":this.current_engaged,
-          "Information": this.Additional_info,
-          "Updated_At": ""+new Date(),
-          "last_login_time": ""+new Date(),
-          "Available_type": this.Available_type,
+          "Salveo_Price" : +this.Charge_Salveo_total,
           "Service": this.Service,
           "Special_mention": this.Special,
-          "Charge_Per_15min": this.Charge_Per_15min,
-          "File_list": this.File_list,
+          "Specilization": this.SpecialisationList,
+          "Type": 1,
+          "Updated_At": ""+new Date(),
+          "Verification_Status": "not verified",
+          "Year_of_Passout": +this.YOP,
+          "corporatecode" : "",
+          "last_login_time": ""+new Date(),
+          "login_type" :"",
           "signature":  this.signature,
-          "Salveo_Price" : +this.Charge_Salveo_total,
-          "Verification_Status": this.verification,
-          "Live_Status": "Last Update Not Live",
-          "Gender": this.Gender,
+          //  "Profile_update_sts" :"",
+          ////////////////////
+          "_id": this.Doctor_Detail._id,
       }
       console.log(data);
       this._api.CreateDoctor1(data).subscribe(
