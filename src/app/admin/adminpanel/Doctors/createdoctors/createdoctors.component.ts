@@ -246,7 +246,7 @@ submit()
             let data =
         {
           "AvailableHours": +this.hours_per_day,
-          "Available_type": this.Available_type,
+          "Available_type": "All Time",
           "Charge_Per_15min": +this.Charge_Per_15min,
           "Current_employee_id": "",
           "Current_location": this.Current_location,
