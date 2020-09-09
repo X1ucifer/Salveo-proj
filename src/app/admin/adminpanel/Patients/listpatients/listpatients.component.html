@@ -50,11 +50,11 @@
                                     <td>{{item.Email}}</td>
                                     <td>{{item.Phone}}</td>
                                     <td>{{item.Password}}</td>
-                                    <td>{{item.CorporateCode}}</td>
+                                    <td>{{item.corporatecode}}</td>
                                     <td>{{item.emp_codes}}</td>
                                     <td>
-                                        <button (click)="DeletePatient(item._id)">Delete</button>
-                                        <button (click)="ViewPatient(item)">View</button>
+                                        <button class="btn btn-danger" style="margin-bottom: 10px;width:70px" (click)="DeletePatient(item._id)">Delete</button>
+                                        <button class="btn btn-success" style="width:70px" (click)="ViewPatient(item)">View</button>
                                     </td>
 
                                 </tr>

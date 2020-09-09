@@ -40,3 +40,9 @@
     outline-offset: 0px;
     box-shadow: none !important;
 }
+.btn {
+    font-size: 9px !important;
+    height: 26px !important;
+    line-height: 0 !important;
+
+}

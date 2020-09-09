@@ -250,7 +250,7 @@ submit()
           "Charge_Per_15min": +this.Charge_Per_15min,
           "Current_employee_id": "",
           "Current_location": this.Current_location,
-          "DOB" : ""+this.datePipe.transform(this.DOB  ,"dd-MM-yyyy"),
+          "DOB" : +this.datePipe.transform(this.DOB  ,"dd-MM-yyyy"),
           "Doctor_Range" : 0,
           "Doctor_title" : this.Doctor_title,
           "Email" : this.Email_id,
