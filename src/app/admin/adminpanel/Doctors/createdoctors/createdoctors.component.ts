@@ -67,7 +67,7 @@ export class CreatedoctorsComponent  {
       this.Doctor_title_list = res.Data;
     })
 
-    this.Pic = "http://54.214.141.11:3000/uploads/images.png";
+    this.Pic = "http://54.183.139.229:3000/uploads/images.png";
     for(let a=1950; a <= 2020; a++){
       this.year.push(a)
     }
@@ -147,7 +147,7 @@ addfiles1()
   const fd = new FormData();
   fd.append('sampleFile', this.selectedAudio1, this.selectedAudio1.name);
   console.log(fd)
-  this.http.post('http://54.214.141.11:3000/upload', fd)
+  this.http.post('http://54.183.139.229:3000/upload', fd)
   .subscribe((res: any) => {
   console.log(res);
   this.Pic = res.Data;
@@ -167,7 +167,7 @@ deletefile(i){
 addfiles(){
   const fd = new FormData();
   fd.append('sampleFile', this.selectedAudio, this.selectedAudio.name);
-  this.http.post('http://54.214.141.11:3000/upload', fd)
+  this.http.post('http://54.183.139.229:3000/upload', fd)
   .subscribe((res: any) => {
   console.log(res);
   this.File_list.push({

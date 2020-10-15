@@ -83,7 +83,7 @@ export class SpecializationsComponent implements OnInit {
     this.selectedAudio1 = event.target.files[0];
     const fd = new FormData();
     fd.append('sampleFile', this.selectedAudio1, this.selectedAudio1.name);
-    this.http.post('http://54.214.141.11:3000/upload', fd)
+    this.http.post('http://54.183.139.229:3000/upload', fd)
       .subscribe((res: any) => {
         console.log(res);
         this.Specializations_image = res.Data;
@@ -101,7 +101,7 @@ export class SpecializationsComponent implements OnInit {
     else {
       const fd = new FormData();
       fd.append('sampleFile', this.selectedAudio1, this.selectedAudio1.name);
-      this.http.post('http://54.214.141.11:3000/upload', fd)
+      this.http.post('http://54.183.139.229:3000/upload', fd)
         .subscribe((res: any) => {
           console.log(res);
           this.Specializations_image = res.Data;
@@ -164,7 +164,7 @@ export class SpecializationsComponent implements OnInit {
       if (this.selectedAudio1 != undefined) {
         const fd = new FormData();
         fd.append('sampleFile', this.selectedAudio1, this.selectedAudio1.name);
-        this.http.post('http://54.214.141.11:3000/upload', fd)
+        this.http.post('http://54.183.139.229:3000/upload', fd)
           .subscribe((res: any) => {
             console.log(res);
             this.Specializations_image = res.Data;

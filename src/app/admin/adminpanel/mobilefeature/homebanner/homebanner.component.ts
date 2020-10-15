@@ -48,7 +48,7 @@ export class HomebannerComponent implements OnInit {
 {
   const fd = new FormData();
   fd.append('sampleFile', this.selectedAudio1, this.selectedAudio1.name);
-  this.http.post('http://54.214.141.11:3000/upload', fd)
+  this.http.post('http://54.183.139.229:3000/upload', fd)
   .subscribe((res: any) => {
   console.log(res);
   this.Banner_path = res.Data;
