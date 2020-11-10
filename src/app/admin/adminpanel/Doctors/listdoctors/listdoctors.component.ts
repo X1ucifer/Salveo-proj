@@ -185,7 +185,9 @@ export class ListdoctorsComponent implements OnInit {
       "KMS_registration": this.Live_Doctor_data.KMS_registration,
       "corporatecode" : this.Live_Doctor_data.corporatecode,
       "Doctor_Range": this.Live_Doctor_data.Doctor_Range,
-
+      'Profile_update_sts': this.Live_Doctor_data.Profile_update_sts,
+      "time_type" : this.Live_Doctor_data.time_type,
+      "call_type" : this.Live_Doctor_data.call_type,
   }
 
   console.log(data);
@@ -240,6 +242,9 @@ export class ListdoctorsComponent implements OnInit {
       "KMS_registration": this.Live_Doctor_data.KMS_registration,
       "corporatecode" : this.Live_Doctor_data.corporatecode,
       "Doctor_Range": this.Live_Doctor_data.Doctor_Range,
+      'Profile_update_sts': this.Live_Doctor_data.Profile_update_sts,
+      "time_type" : this.Live_Doctor_data.time_type,
+      "call_type" : this.Live_Doctor_data.call_type,
   }
   console.log(data);
   this._api.EditLiveDoctor(data).subscribe(
