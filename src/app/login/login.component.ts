@@ -15,12 +15,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 login(){
-  if(this.name == 'salveo@gmail.com' && this.password == '123456'){
+  if(this.name == 'salveo@gmail.com' && this.password == 'Salveo$#2021'){
     this.router.navigate(['admin_panel']);
   }
   else{
     alert('Invalid Login Details')
   }
- 
+
 }
 }
