@@ -148,7 +148,7 @@ export class SpecializationsComponent implements OnInit {
     }
   }
   EditSpecialisation(data) {
-    window.scrollTo(0, 0);
+    window.scrollTo(0,0);
     this.Specialisation = data.Specialization;
     this.Specializations_image = data.Specialization_image;
     this.id = data._id;
