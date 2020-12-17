@@ -52,6 +52,14 @@ export class CreatedoctorsComponent  {
   Validation : boolean;
   maxDate:any = new Date();
   year:any[]=[];
+  call_type = "Chat & Video";
+  time_type ="0";
+
+
+
+
+
+
   constructor(private http: HttpClient,private datePipe: DatePipe,private _api: ApiService,private ValidatorService:ValidatorService, private router: Router,   ) {
      this._api.specializationList().subscribe((res) => {
       console.log(res)
