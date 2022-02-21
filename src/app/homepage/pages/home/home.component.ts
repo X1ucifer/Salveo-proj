@@ -80,9 +80,9 @@ export class HomeComponent implements OnInit {
     {
       class: 'slide-3',
     },
-    {
-      class: 'slide-4',
-    },
+    // {
+    //   class: 'slide-4',
+    // },
   ]
   responsiveOptions:any;
 

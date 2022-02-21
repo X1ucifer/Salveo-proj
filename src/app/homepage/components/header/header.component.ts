@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  isNav = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  NavClick(){
+    this.isNav=!this.isNav;
+    console.log("hloo",this.isNav)
   }
 
 }
