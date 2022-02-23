@@ -19,4 +19,8 @@ export class HeaderComponent implements OnInit {
     console.log("hloo",this.isNav)
   }
 
+  ActiveClick(){
+    this.isNav=false;
+  }
+
 }

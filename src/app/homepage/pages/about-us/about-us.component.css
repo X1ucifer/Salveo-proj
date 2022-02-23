@@ -1,0 +1,16 @@
+@media screen and (max-width: 800px) {
+
+    .advisorDesk{
+        display: none;
+    }
+
+
+}
+
+@media screen and (min-width: 800px) {
+
+    .advisorMob{
+        display:none;
+    }
+       
+}

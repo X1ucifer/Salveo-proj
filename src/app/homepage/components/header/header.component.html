@@ -65,28 +65,35 @@
                     </div>
                     <div *ngIf="isNav;" class="Mobnav">
 
-                        <ul class="nav navbar-na ">
+                        <ul class="nav navbar-na " (click)="ActiveClick()">
 
                             <li><a class="menu-item" [routerLink]="'/home'" routerLinkActive="active">Home</a></li>
                             <li class="non-mega"><a href="#">Services</a>
                                 <ul>
 
-                                    <li><a [routerLink]="'/corporate_wellness'" routerLinkActive="active">Corporate
+                                    <li style="padding-bottom: 10px;"><a [routerLink]="'/corporate_wellness'"
+                                            routerLinkActive="active">Corporate
                                             Wellness Program</a></li>
-                                    <li><a [routerLink]="'/wellness'" routerLinkActive="active">Health & Wellness
+                                    <li style="padding-bottom: 10px;"><a [routerLink]="'/wellness'"
+                                            routerLinkActive="active">Health & Wellness
                                         </a>
                                     </li>
-                                    <li><a [routerLink]="'/diagnostics'" routerLinkActive="active">Diagnostics</a>
+                                    <li style="padding-bottom: 10px;"><a [routerLink]="'/diagnostics'"
+                                            routerLinkActive="active">Diagnostics</a>
                                     </li>
-                                    <li><a [routerLink]="'/nursing'" routerLinkActive="active">Nursing & Eldercare
+                                    <li style="padding-bottom: 10px;"><a [routerLink]="'/nursing'"
+                                            routerLinkActive="active">Nursing & Eldercare
                                         </a>
                                     </li>
-                                    <li><a [routerLink]="'/physiotherapy'" routerLinkActive="active">Physiotherapy</a>
+                                    <li style="padding-bottom: 10px;"><a [routerLink]="'/physiotherapy'"
+                                            routerLinkActive="active">Physiotherapy</a>
                                     </li>
-                                    <li><a [routerLink]="'/dental_care'" routerLinkActive="active">Dental Care</a>
+                                    <li style="padding-bottom: 10px;"><a [routerLink]="'/dental_care'"
+                                            routerLinkActive="active">Dental Care</a>
                                     </li>
 
-                                    <li><a [routerLink]="'/doctor_consultation'" routerLinkActive="active">Doctor
+                                    <li style="padding-bottom: 10px;"><a [routerLink]="'/doctor_consultation'"
+                                            routerLinkActive="active">Doctor
                                             Consulatation</a></li>
 
 
@@ -102,12 +109,23 @@
 
                         </ul>
 
+                        <div (click)="ActiveClick()" class="module module-search pull-righ" style="margin-top: 20px;">
+                            <div class="module-icon search-icon">
+
+                                <a href="https://salveohealthcare.in/loginreg.php" target="_blank"
+                                    style="background:#1b8bca; padding:10px; color:#fff; border-radius: 5px;">book
+                                    appointment</a>
+                            </div>
+
+                        </div>
+
                     </div>
-                    
+
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
 
-                    <div class="collapse navbar-collapse pull-right navgation menubar" id="navbar-collapse-1" style="position: absolute;right: -7%;">
+                    <div class="collapse navbar-collapse pull-right navgation menubar" id="navbar-collapse-1"
+                        style="position: absolute;right: -7%;">
 
                         <ul class="nav navbar-nav navbar-left nav-pos-left">
 

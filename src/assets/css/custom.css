@@ -379,6 +379,8 @@ Image credits: unsplash.com
      -o-transform: translate3d(-50%, -50%, 0);
      transform: translate3d(-50%, -50%, 0);
  }
+
+ 
  
  .hero h2 {
      font-size: 25px !important;
@@ -392,6 +394,24 @@ Image credits: unsplash.com
      width: 50% !important;
      margin: auto !important;
  }
+
+ @media screen and (max-width: 600px) {
+
+    .hero h2{
+        font-size: 25px !important;
+     font-weight: bold !important;
+     margin: 0;
+     padding: 10px;
+     color: #1b8bca;
+     background: #ddd;
+     opacity: 0.8;
+     border-radius: 10px;
+     width: 100% !important;
+     margin: auto !important;
+    }
+       
+}
+
  
  .fade-carousel .carousel-inner .item .hero {
      opacity: 0;

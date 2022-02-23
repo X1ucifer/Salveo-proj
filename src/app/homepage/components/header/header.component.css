@@ -5,7 +5,7 @@
     position: absolute; 
     z-index: 1; 
     right: 0%;
-    transition-delay: 4s;
+    transition: 0.3s;
     box-shadow: -11px 0px 35px -9px rgba(0,0,0,0.75);
 -webkit-box-shadow: -11px 0px 35px -9px rgba(0,0,0,0.75);
 -moz-box-shadow: -11px 0px 35px -9px rgba(0,0,0,0.75);
